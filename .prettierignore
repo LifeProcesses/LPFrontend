@@ -1,0 +1,6 @@
+.editorconfig
+.eslintrc
+.gitattributes
+.prettierrc
+package.json
+*.json
