@@ -1,22 +1,26 @@
-import logo from 'assets/logo.svg';
+import { Route, Routes, BrowserRouter as Router, Navigate } from 'react-router-dom';
+
+import CompaniesPage from 'pages/companies/CompaniesPage';
+import PositionsPage from 'pages/positions/PositionsPage';
+import StudentsPage from 'pages/students/StudentsPage';
+import TemplatePageLayout from 'pages/templateLayout/TemplatePageLayout';
 
 import './App.scss';
 
 function App() {
     return (
-        <div className='App'>
-            <header className='App-header'>
-                <img src={logo} className='App-logo' alt='logo' />
-
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-
-                <a className='App-link' href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
-                    Learn React
-                </a>
-            </header>
-        </div>
+        <Router>
+            <div className='App'>
+                <Routes>
+                    <Route path='' element={<Navigate replace to='/students' />} />
+                    <Route path='/*' element={<TemplatePageLayout />}>
+                        <Route path='students' element={<StudentsPage />} />
+                        <Route path='companies' element={<CompaniesPage />} />
+                        <Route path='positions' element={<PositionsPage />} />
+                    </Route>
+                </Routes>
+            </div>
+        </Router>
     );
 }
 
