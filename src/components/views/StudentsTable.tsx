@@ -2,9 +2,11 @@ import { Table, Tag } from 'antd';
 
 import moment from 'moment';
 
+import { STUDENTS_MOCK } from '../../helpers/mocks/Students.mock';
+
 import { StudentPayload } from 'api/Models';
 
-import { STUDENT_STATUS_COLOR } from 'helpers/constants';
+import { STUDENT_STATUS_LABEL, STUDENT_STATUS_TAG_CLASS } from 'helpers/constants';
 
 import type { ColumnsType } from 'antd/es/table';
 
@@ -19,7 +21,11 @@ const StudentsTable: React.FC = () => {
             title: 'Статус',
             dataIndex: 'status',
             key: 'status',
-            render: (_, { status }) => <Tag color={STUDENT_STATUS_COLOR[status.type]}>{status.type}</Tag>,
+            render: (_, { status }) => (
+                <Tag className={`lp-tag ${STUDENT_STATUS_TAG_CLASS[status.type]}`}>
+                    {STUDENT_STATUS_LABEL[status.type]}
+                </Tag>
+            ),
         },
         {
             title: 'Компании',
@@ -53,7 +59,7 @@ const StudentsTable: React.FC = () => {
         },
     ];
 
-    return <Table columns={columns} dataSource={data} />;
+    return <Table columns={columns} dataSource={STUDENTS_MOCK.students} />;
 };
 
 export default StudentsTable;

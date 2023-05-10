@@ -1,11 +1,26 @@
+import { Select } from 'antd';
 import { Header } from 'antd/es/layout/layout';
-import { Link } from 'react-router-dom';
+import { useMemo } from 'react';
+import { Link, matchPath, useLocation } from 'react-router-dom';
 
 import { ReactComponent as Logo } from 'assets/logo.svg';
+
+import { STUDENTS_FLOW_MOCK } from 'helpers/mocks/Flow.mock';
 
 import './AppHeader.scss';
 
 const AppHeader: React.FC = () => {
+    const { pathname } = useLocation();
+    const isStudentsPath = matchPath('/students/*', pathname);
+    const isCompaniesPath = matchPath('/companies/*', pathname);
+    const isPositionsPath = matchPath('/positions/*', pathname);
+
+    const flowOPtions = useMemo(() => STUDENTS_FLOW_MOCK.map((flow) => ({ value: flow.id, label: flow.name })), []);
+
+    const handleChangeFlow = (value: string) => {
+        console.log(value);
+    };
+
     return (
         <Header className='header'>
             <div className='header__logo'>
@@ -13,11 +28,25 @@ const AppHeader: React.FC = () => {
                 <span>Стажировки HITs</span>
             </div>
             <div className='header__navigation'>
-                <Link to='students'>Студенты</Link>
-                <Link to='companies'>Компании</Link>
-                <Link to='positions'>Позиции</Link>
+                <Link to='students' className={isStudentsPath ? 'selected' : ''}>
+                    Студенты
+                </Link>
+                <Link to='companies' className={isCompaniesPath ? 'selected' : ''}>
+                    Компании
+                </Link>
+                <Link to='positions' className={isPositionsPath ? 'selected' : ''}>
+                    Позиции
+                </Link>
             </div>
-            <div>2 курс</div>
+            <div className='header__select'>
+                <Select
+                    defaultValue='97200P'
+                    bordered={false}
+                    style={{ width: 120 }}
+                    onChange={handleChangeFlow}
+                    options={flowOPtions}
+                />
+            </div>
         </Header>
     );
 };

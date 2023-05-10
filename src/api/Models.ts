@@ -4,20 +4,20 @@ export interface StudentsPayload {
 }
 
 export interface StudentPayload {
-    id: string;
+    id: number;
     name: string;
     image: string;
     status: {
         type: StatusType;
-        number: 0;
+        number: number;
     };
-    interviewsCount: 0;
+    interviewsCount: number;
     companies: {
-        id: string;
+        id: number;
         name: string;
     }[];
     positions: {
-        id: string;
+        id: number;
         name: string;
     }[];
     lastActivity: Date;
