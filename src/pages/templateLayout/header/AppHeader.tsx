@@ -3,7 +3,7 @@ import { Header } from 'antd/es/layout/layout';
 import { useMemo } from 'react';
 import { Link, matchPath, useLocation } from 'react-router-dom';
 
-import { ReactComponent as Logo } from 'assets/logo.svg';
+import { ReactComponent as Logo } from 'assets/icons/logo.svg';
 
 import { STUDENTS_FLOW_MOCK } from 'helpers/mocks/Flow.mock';
 

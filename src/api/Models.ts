@@ -31,5 +31,4 @@ export enum StatusType {
     Empty = 'empty',
 }
 
-// запросы на сервер
 export interface AModel {}
