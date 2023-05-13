@@ -5,13 +5,15 @@ import moment from 'moment';
 import { StudentPayload } from 'api/Models';
 
 import { STUDENT_STATUS_LABEL, STUDENT_STATUS_TAG_CLASS } from 'helpers/constants';
-import { STUDENTS_MOCK } from 'helpers/mocks/Students.mock';
+import { useAppSelector } from 'hooks/useAppSelector';
 
 import type { ColumnsType } from 'antd/es/table';
 
 import './StudentsTable.scss';
 
-const StudentsTable: React.FC = () => {
+const StudentsTable: React.FC<{ isLoading: boolean }> = ({ isLoading }) => {
+    const { filteredStudents: students } = useAppSelector((store) => store.students);
+
     const columns: ColumnsType<StudentPayload> = [
         {
             title: 'Имя',
@@ -72,7 +74,15 @@ const StudentsTable: React.FC = () => {
         },
     ];
 
-    return <Table columns={columns} dataSource={STUDENTS_MOCK.students} />;
+    return (
+        <>
+            <div>
+                <span>Найдено студентов: {students.length}</span>
+                <button>Очистить фильтр</button>
+            </div>
+            <Table columns={columns} dataSource={students} loading={isLoading} />
+        </>
+    );
 };
 
 export default StudentsTable;

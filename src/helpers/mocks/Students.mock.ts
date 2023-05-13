@@ -14,30 +14,30 @@ export const STUDENTS_MOCK: StudentsPayload = {
             interviewsCount: 12,
             companies: [
                 {
-                    id: 13,
+                    id: 1,
                     name: 'NTR',
                 },
                 {
-                    id: 134,
+                    id: 2,
                     name: 'Kreosoft',
                 },
                 {
-                    id: 13,
+                    id: 4,
                     name: 'Тинькофф',
                 },
             ],
             positions: [
                 {
-                    id: 3,
-                    name: 'Frontend',
+                    id: 1,
+                    name: 'Frontend React',
                 },
                 {
-                    id: 1,
-                    name: 'Backend',
+                    id: 2,
+                    name: 'Frontend Vue',
                 },
                 {
                     id: 4,
-                    name: 'SEO',
+                    name: 'Backend PHP',
                 },
             ],
             lastActivity: new Date(),
@@ -60,7 +60,7 @@ export const STUDENTS_MOCK: StudentsPayload = {
             positions: [
                 {
                     id: 3,
-                    name: 'Frontend',
+                    name: 'Backend Java',
                 },
             ],
             lastActivity: new Date(),
@@ -76,14 +76,14 @@ export const STUDENTS_MOCK: StudentsPayload = {
             interviewsCount: 12,
             companies: [
                 {
-                    id: 13,
+                    id: 1,
                     name: 'NTR',
                 },
             ],
             positions: [
                 {
                     id: 3,
-                    name: 'Frontend',
+                    name: 'Backend Java',
                 },
             ],
             lastActivity: new Date(),
@@ -99,14 +99,14 @@ export const STUDENTS_MOCK: StudentsPayload = {
             interviewsCount: 12,
             companies: [
                 {
-                    id: 13,
+                    id: 1,
                     name: 'NTR',
                 },
             ],
             positions: [
                 {
                     id: 3,
-                    name: 'Frontend',
+                    name: 'Backend Java',
                 },
             ],
             lastActivity: new Date(),
@@ -122,14 +122,14 @@ export const STUDENTS_MOCK: StudentsPayload = {
             interviewsCount: 0,
             companies: [
                 {
-                    id: 13,
+                    id: 1,
                     name: 'NTR',
                 },
             ],
             positions: [
                 {
                     id: 3,
-                    name: 'Frontend',
+                    name: 'Backend Java',
                 },
             ],
             lastActivity: new Date(),

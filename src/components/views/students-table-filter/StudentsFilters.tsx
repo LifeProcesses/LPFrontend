@@ -1,40 +1,47 @@
 import { Input, Select, Tag } from 'antd';
 
-import { useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { STUDENT_STATUS_LABEL } from 'helpers/constants';
-import { COMPANIES_MOCK } from 'helpers/mocks/Companies.mock';
-import { POSITIONS_MOCK } from 'helpers/mocks/Positions.mock';
+
+import { useAppDispatch } from 'hooks/useAppDispatch';
+import { useAppSelector } from 'hooks/useAppSelector';
+import { setFilters } from 'store/reducers/studentsSlice';
 
 import type { CustomTagProps } from 'rc-select/lib/BaseSelect';
 
 import './StudentsFilters.scss';
 
 const StudentsFilters: React.FC = () => {
+    const dispatch = useAppDispatch();
+
+    const { companies, positions } = useAppSelector((store) => store.students);
+
+    const [filteredName, setFilteredName] = useState<string>('');
     const [selectedCompanies, setSelectedCompanies] = useState<number[]>([]);
     const [selectedPositions, setSelectedPositions] = useState<number[]>([]);
     const [selectedStatuses, setSelectedStatuses] = useState<string[]>([]);
 
     const companiesOptions = useMemo(
         () =>
-            COMPANIES_MOCK.companies
+            companies
                 .filter((company) => !selectedCompanies.includes(company.id))
                 .map((company) => ({
                     value: company.id,
                     label: company.name,
                 })),
-        [selectedCompanies],
+        [companies, selectedCompanies],
     );
 
     const positionsOptions = useMemo(
         () =>
-            POSITIONS_MOCK.positions
+            positions
                 .filter((position) => !selectedPositions.includes(position.id))
                 .map((position) => ({
                     value: position.id,
                     label: position.name,
                 })),
-        [selectedPositions],
+        [positions, selectedPositions],
     );
 
     const statusesOptions = useMemo(
@@ -46,6 +53,37 @@ const StudentsFilters: React.FC = () => {
                     label: status[1],
                 })),
         [selectedStatuses],
+    );
+
+    useEffect(() => {
+        const delayDebounceFn = setTimeout(async () => {
+            handleFilter({});
+        }, 500);
+
+        return () => clearTimeout(delayDebounceFn);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [filteredName]);
+
+    const handleFilter = useCallback(
+        ({
+            companies = selectedCompanies,
+            positions = selectedPositions,
+            statuses = selectedStatuses,
+        }: {
+            companies?: number[];
+            positions?: number[];
+            statuses?: string[];
+        }) => {
+            dispatch(
+                setFilters({
+                    name: filteredName.length ? filteredName : undefined,
+                    companies: companies.length ? companies : undefined,
+                    positions: positions.length ? positions : undefined,
+                    statuses: statuses.length ? statuses : undefined,
+                }),
+            );
+        },
+        [dispatch, filteredName, selectedCompanies, selectedPositions, selectedStatuses],
     );
 
     const tagRender = ({ label, value, closable, onClose }: CustomTagProps) => {
@@ -63,14 +101,22 @@ const StudentsFilters: React.FC = () => {
 
     return (
         <div className='students-filters'>
-            <Input placeholder='Поиск' className='students-filters__search' />
+            <Input
+                value={filteredName}
+                onChange={(e) => setFilteredName(e.target.value)}
+                placeholder='Поиск'
+                className='students-filters__search'
+            />
             <div className='filter-wrapper'>
                 <label>Компания</label>
                 <Select
                     mode='multiple'
                     allowClear
                     tagRender={tagRender}
-                    onChange={setSelectedCompanies}
+                    onChange={(val) => {
+                        setSelectedCompanies(val);
+                        handleFilter({ companies: val });
+                    }}
                     options={companiesOptions}
                     optionFilterProp='label'
                 />
@@ -81,9 +127,11 @@ const StudentsFilters: React.FC = () => {
                     mode='multiple'
                     allowClear
                     tagRender={tagRender}
-                    onChange={setSelectedPositions}
+                    onChange={(val) => {
+                        setSelectedPositions(val);
+                        handleFilter({ positions: val });
+                    }}
                     options={positionsOptions}
-                    // maxTagCount='responsive'
                     optionFilterProp='label'
                 />
             </div>
@@ -93,7 +141,10 @@ const StudentsFilters: React.FC = () => {
                     mode='multiple'
                     allowClear
                     tagRender={tagRender}
-                    onChange={setSelectedStatuses}
+                    onChange={(val) => {
+                        setSelectedStatuses(val);
+                        handleFilter({ statuses: val });
+                    }}
                     options={statusesOptions}
                     optionFilterProp='label'
                 />

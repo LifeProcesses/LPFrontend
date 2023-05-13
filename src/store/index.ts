@@ -1,19 +1,23 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import example from './reducers/exampleSlice';
+import students from './reducers/studentsSlice';
 
-import { exampleApi } from 'api/routes/exampleApi';
+import { companiesApi } from 'api/routes/companiesApi';
+import { positionsApi } from 'api/routes/positionsApi';
+import { studentsApi } from 'api/routes/studentsApi';
 
 const store = configureStore({
     reducer: {
-        example,
-        [exampleApi.reducerPath]: exampleApi.reducer,
+        students,
+        [positionsApi.reducerPath]: positionsApi.reducer,
+        [studentsApi.reducerPath]: studentsApi.reducer,
+        [companiesApi.reducerPath]: companiesApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             immutableCheck: { warnAfter: 128 },
             serializableCheck: false,
-        }).concat(exampleApi.middleware),
+        }).concat(positionsApi.middleware, studentsApi.middleware, companiesApi.middleware),
 });
 
 export default store;
