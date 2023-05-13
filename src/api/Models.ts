@@ -1,4 +1,6 @@
 /* eslint-disable no-unused-vars */
+import { StatusType } from 'helpers/types';
+
 export interface StudentsPayload {
     students: StudentPayload[];
 }
@@ -23,12 +25,29 @@ export interface StudentPayload {
     lastActivity: Date;
 }
 
-export enum StatusType {
-    Accepted = 'accepted',
-    Issued = 'issued',
-    Interview = 'interview',
-    Refused = 'refused',
-    Empty = 'empty',
+export interface CompaniesPayload {
+    companies: CompanyPayload[];
+}
+
+export interface CompanyPayload {
+    id: number;
+    name: string;
+    plan: number;
+    taken: number;
+}
+
+export interface PositionsPayload {
+    plan: number;
+    taken: number;
+    positions: PositionPayload[];
+}
+
+export interface PositionPayload {
+    id: number;
+    name: string;
+    plan: number;
+    taken: number;
+    companies: CompanyPayload[];
 }
 
 export interface AModel {}

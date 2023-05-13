@@ -1,4 +1,4 @@
-import { StatusType } from 'api/Models';
+import { StatusType } from './types';
 
 export const STUDENT_STATUS_TAG_CLASS = {
     [StatusType.Accepted]: 'lp-tag_blue',
@@ -9,9 +9,15 @@ export const STUDENT_STATUS_TAG_CLASS = {
 };
 
 export const STUDENT_STATUS_LABEL = {
-    [StatusType.Accepted]: 'оффер принят',
-    [StatusType.Issued]: 'оффер',
-    [StatusType.Interview]: 'собеседование',
-    [StatusType.Refused]: 'отказ',
-    [StatusType.Empty]: 'без собесов',
+    [StatusType.Accepted]: 'Оффер принят',
+    [StatusType.Issued]: 'Оффер',
+    [StatusType.Interview]: 'Собеседование',
+    [StatusType.Refused]: 'Отказ',
+    [StatusType.Empty]: 'Без собесов',
 };
+
+// export const STUDENT_STATUS_OPTIONS = STUDENT_STATUS_LABEL.map((status) => (
+//     {
+
+//     }
+// ))

@@ -1,4 +1,5 @@
-import { StatusType, StudentsPayload } from 'api/Models';
+import { StudentsPayload } from 'api/Models';
+import { StatusType } from 'helpers/types';
 
 export const STUDENTS_MOCK: StudentsPayload = {
     students: [

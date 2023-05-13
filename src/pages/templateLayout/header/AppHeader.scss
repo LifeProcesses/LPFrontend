@@ -37,7 +37,7 @@
         gap: 55px;
 
         a {
-            color: var(--neutral-01);
+            color: var(--neutral-02);
 
             &.selected {
                 color: #fff;
@@ -50,11 +50,11 @@
 
         .ant-select-selection-item {
             @include text-18-27-400;
-            color: var(--neutral-01) !important;
+            color: var(--neutral-02) !important;
         }
 
         .ant-select-arrow {
-            color: var(--neutral-01);
+            color: var(--neutral-02);
         }
     }
 }

@@ -1,9 +1,10 @@
-import StudentsTable from 'components/views/StudentsTable';
+import StudentsTable from 'components/views/students-table/StudentsTable';
+import StudentsFilters from 'components/views/students-table-filter/StudentsFilters';
 
 const StudentsPage: React.FC = () => {
     return (
         <>
-            <div>Студенты</div>
+            <StudentsFilters />
             <StudentsTable />
         </>
     );

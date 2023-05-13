@@ -1,0 +1,33 @@
+@import 'styles/typography';
+
+tr {
+    @include text-15-18-400;
+
+    > *:last-child {
+        text-align: end !important;
+    }
+
+    &.ant-table-row {
+        cursor: pointer;
+    }
+}
+
+.student-name {
+    display: flex;
+    align-items: center;
+}
+
+.cell-wrapper {
+    p {
+        margin: 0;
+    }
+
+    &__total {
+        color: var(--primary);
+    }
+
+    &_status &__total {
+        margin: 4px 4px 0;
+    }
+}
+

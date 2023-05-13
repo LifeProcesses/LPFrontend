@@ -18,7 +18,7 @@ const StudentsTable: React.FC = () => {
             dataIndex: 'name',
             key: 'name',
             render: (_, { name, image }) => (
-                <div>
+                <div className='student-name'>
                     <Avatar src={image} style={{ marginRight: '17px' }} />
                     <span>{name}</span>
                 </div>
@@ -31,10 +31,10 @@ const StudentsTable: React.FC = () => {
             render: (_, { status, interviewsCount }) => (
                 <div className='cell-wrapper cell-wrapper_status'>
                     <Tag className={`lp-tag ${STUDENT_STATUS_TAG_CLASS[status.type]}`}>
-                        {STUDENT_STATUS_LABEL[status.type]}
+                        {STUDENT_STATUS_LABEL[status.type].toLowerCase()}
                         <span>{!!status.number && ` (${status.number})`}</span>
                     </Tag>
-                    {!!interviewsCount && <p>Всего вакансий: {interviewsCount}</p>}
+                    {!!interviewsCount && <p className='cell-wrapper__total'>Всего вакансий: {interviewsCount}</p>}
                 </div>
             ),
         },
@@ -44,9 +44,10 @@ const StudentsTable: React.FC = () => {
             key: 'companies',
             render: (_, { companies }) => (
                 <div className='cell-wrapper'>
-                    {companies.map((company, i) => (
+                    {companies.slice(0, 2).map((company, i) => (
                         <p key={i}>{company.name}</p>
                     ))}
+                    {companies.length > 2 && <p className='cell-wrapper__total'>Всего: {companies.length}</p>}
                 </div>
             ),
         },
@@ -56,9 +57,10 @@ const StudentsTable: React.FC = () => {
             dataIndex: 'positions',
             render: (_, { positions }) => (
                 <div className='cell-wrapper'>
-                    {positions.map((position, i) => (
+                    {positions.slice(0, 2).map((position, i) => (
                         <p key={i}>{position.name}</p>
                     ))}
+                    {positions.length > 2 && <p className='cell-wrapper__total'>Всего: {positions.length}</p>}
                 </div>
             ),
         },

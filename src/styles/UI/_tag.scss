@@ -3,7 +3,7 @@
 .lp-tag {
     @include text-14-17-700;
     padding: 6px 12px;
-    border-radius: 10px;
+    border-radius: 20px;
     color: #fff;
 
     &_blue {
@@ -25,5 +25,10 @@
 
     &_black {
         background-color: #000;
+    }
+
+    &_filter {
+        border-radius: 10px;
+        background-color: var(--neutral-01);
     }
 }
