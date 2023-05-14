@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { exampleApi } from 'api/routes/exampleApi';
+import { CompaniesApi } from 'api/routes/CompaniesApi';
 
 interface ExampleState {}
 
@@ -13,7 +13,7 @@ export const exampleSlice = createSlice({
         example: (state, { payload }: PayloadAction<null>) => {},
     },
     extraReducers: (builder) => {
-        builder.addMatcher(exampleApi.endpoints.exampleGet.matchFulfilled, (state, { payload }) => {});
+        builder.addMatcher(CompaniesApi.endpoints.getCompanies.matchFulfilled, (state, { payload }) => {});
     },
 });
 

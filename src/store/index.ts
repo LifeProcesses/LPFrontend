@@ -2,18 +2,18 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import example from './reducers/exampleSlice';
 
-import { exampleApi } from 'api/routes/exampleApi';
+import { CompaniesApi } from 'api/routes/CompaniesApi';
 
 const store = configureStore({
     reducer: {
         example,
-        [exampleApi.reducerPath]: exampleApi.reducer,
+        [CompaniesApi.reducerPath]: CompaniesApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             immutableCheck: { warnAfter: 128 },
             serializableCheck: false,
-        }).concat(exampleApi.middleware),
+        }).concat(CompaniesApi.middleware),
 });
 
 export default store;
