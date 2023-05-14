@@ -1,4 +1,8 @@
+@import 'styles/typography';
+
 .header {
+    @include text-18-27-400;
+
     position: sticky;
     top: 0;
     z-index: 1;
@@ -8,23 +12,49 @@
     justify-content: space-between;
     align-items: center;
 
-    padding: 15px unset;
+    padding: 15px 45px;
 
     color: #fff;
+
+    > * {
+        flex: 1;
+    }
 
     &__logo {
         display: flex;
         align-items: center;
         gap: 10px;
-    }
 
+        svg {
+            width: 35px;
+            height: 41px;
+        }
+    }
 
     &__navigation {
         display: flex;
+        justify-content: center;
         gap: 55px;
 
         a {
-            color: #fff;
+            color: var(--neutral-02);
+
+            &.selected {
+                color: #fff;
+            }
+        }
+    }
+
+    &__select {
+        text-align: end;
+
+        .ant-select-selection-item {
+            @include text-18-27-400;
+            color: var(--neutral-02) !important;
+        }
+
+        .ant-select-arrow {
+            color: var(--neutral-02);
         }
     }
 }

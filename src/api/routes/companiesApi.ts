@@ -1,7 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 
-export const exampleApi = createApi({
-    reducerPath: 'exampleApi',
+import { CompaniesPayload } from 'api/Models';
+
+export const companiesApi = createApi({
+    reducerPath: 'companiesApi',
     tagTypes: [''],
     baseQuery: fetchBaseQuery({
         baseUrl: ``,
@@ -17,9 +19,9 @@ export const exampleApi = createApi({
 
     endpoints: (build) => {
         return {
-            exampleGet: build.query<null, null>({
+            getCompaniesList: build.query<CompaniesPayload, void>({
                 query: () => ({
-                    url: ``,
+                    url: `companies`,
                     method: 'GET',
                 }),
                 providesTags: [{ type: '' }],
@@ -36,4 +38,4 @@ export const exampleApi = createApi({
     },
 });
 
-export const { useExampleGetQuery, useLazyExampleGetQuery, useExamplePostMutation } = exampleApi;
+export const { useGetCompaniesListQuery } = companiesApi;

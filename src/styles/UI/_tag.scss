@@ -1,0 +1,34 @@
+@import 'styles/typography';
+
+.lp-tag {
+    @include text-14-17-700;
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: #fff;
+
+    &_blue {
+        background-color: var(--blue);
+    }
+
+    &_yellow {
+        color: #000;
+        background-color: var(--yellow);
+    }
+
+    &_green {
+        background-color: var(--green);
+    }
+
+    &_grey {
+        background-color: var(--neutral-00);
+    }
+
+    &_black {
+        background-color: #000;
+    }
+
+    &_filter {
+        border-radius: 10px;
+        background-color: var(--neutral-01);
+    }
+}

@@ -1,4 +1,16 @@
+@import 'styles/UI/tag';
+
 .App {
     max-width: 100vw;
     height: 100vh;
+}
+
+:root {
+    --primary: #2339ff;
+    --neutral-00: #454545;
+    --neutral-01: #686666;
+    --neutral-02: #afacac;
+    --green: #02be22;
+    --blue: #1442e3;
+    --yellow: #ffd930;
 }
