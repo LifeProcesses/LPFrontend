@@ -3,7 +3,7 @@ import { Avatar, List, Space } from 'antd';
 
 import React from 'react';
 
-import { useGetCompaniesListQuery } from 'api/routes/CompaniesApi';
+import { useGetCompaniesListQuery } from 'api/routes/companiesApi';
 
 import './CompaniesPage.scss';
 
