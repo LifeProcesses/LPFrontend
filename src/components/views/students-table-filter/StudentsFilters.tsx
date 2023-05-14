@@ -1,6 +1,6 @@
 import { Input, Select, Tag } from 'antd';
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { STUDENT_STATUS_LABEL } from 'helpers/constants';
 
@@ -8,9 +8,12 @@ import { useAppDispatch } from 'hooks/useAppDispatch';
 import { useAppSelector } from 'hooks/useAppSelector';
 import { setFilters } from 'store/reducers/studentsSlice';
 
+import type { BaseSelectRef } from 'rc-select';
 import type { CustomTagProps } from 'rc-select/lib/BaseSelect';
 
 import './StudentsFilters.scss';
+
+// const { Option } = Select;
 
 const StudentsFilters: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -21,6 +24,8 @@ const StudentsFilters: React.FC = () => {
     const [selectedCompanies, setSelectedCompanies] = useState<number[]>([]);
     const [selectedPositions, setSelectedPositions] = useState<number[]>([]);
     const [selectedStatuses, setSelectedStatuses] = useState<string[]>([]);
+
+    const selectRef = useRef<BaseSelectRef>(null);
 
     const companiesOptions = useMemo(
         () =>
@@ -76,10 +81,10 @@ const StudentsFilters: React.FC = () => {
         }) => {
             dispatch(
                 setFilters({
-                    name: filteredName.length ? filteredName : undefined,
-                    companies: companies.length ? companies : undefined,
-                    positions: positions.length ? positions : undefined,
-                    statuses: statuses.length ? statuses : undefined,
+                    ...(filteredName.length && { name: filteredName }),
+                    ...(companies.length && { companies }),
+                    ...(positions.length && { positions }),
+                    ...(statuses.length && { statuses }),
                 }),
             );
         },
@@ -110,6 +115,7 @@ const StudentsFilters: React.FC = () => {
             <div className='filter-wrapper'>
                 <label>Компания</label>
                 <Select
+                    ref={selectRef}
                     mode='multiple'
                     allowClear
                     tagRender={tagRender}
@@ -148,6 +154,10 @@ const StudentsFilters: React.FC = () => {
                     options={statusesOptions}
                     optionFilterProp='label'
                 />
+                {/* {statusesOptions.map((opt) => (
+                        <Option value={opt.value} key={opt.value}>{opt.label}</Option>
+                    ))} */}
+                    <button onClick={() => setSelectedStatuses([])}></button>
             </div>
         </div>
     );
