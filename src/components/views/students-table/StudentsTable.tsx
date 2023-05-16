@@ -1,8 +1,12 @@
 import { Avatar, Table, Tag } from 'antd';
-
 import moment from 'moment';
 
-import { StudentPayload } from 'api/Models';
+import { useCallback, useState } from 'react';
+
+import StudentCard from '../student-card/StudentCard';
+
+import { StudentInfoPayload, StudentPayload } from 'api/Models';
+import { useLazyGetStudentInfoQuery } from 'api/routes/studentsApi';
 
 import { STUDENT_STATUS_LABEL, STUDENT_STATUS_TAG_CLASS } from 'helpers/constants';
 import { useAppSelector } from 'hooks/useAppSelector';
@@ -13,6 +17,11 @@ import './StudentsTable.scss';
 
 const StudentsTable: React.FC<{ isLoading: boolean }> = ({ isLoading }) => {
     const { filteredStudents: students } = useAppSelector((store) => store.students);
+
+    const [getStudent, { isFetching: isStudentFetching, isLoading: isStudentLoading }] = useLazyGetStudentInfoQuery();
+
+    const [isCardOpen, setIsCardOpen] = useState<boolean>(false);
+    const [currentStudent, setCurrentStudent] = useState<StudentInfoPayload | null>(null);
 
     const columns: ColumnsType<StudentPayload> = [
         {
@@ -74,13 +83,36 @@ const StudentsTable: React.FC<{ isLoading: boolean }> = ({ isLoading }) => {
         },
     ];
 
+    const handleOpenStudent = useCallback(
+        async (id: number) => {
+            await getStudent(id)
+                .unwrap()
+                .then((data) => {
+                    setCurrentStudent(data);
+                });
+            setIsCardOpen(true);
+        },
+        [getStudent],
+    );
+
     return (
         <>
-            <div>
-                <span>Найдено студентов: {students.length}</span>
-                <button>Очистить фильтр</button>
-            </div>
-            <Table columns={columns} dataSource={students} loading={isLoading} />
+            <p>Найдено студентов: {students.length}</p>
+            <Table
+                columns={columns}
+                dataSource={students}
+                loading={isLoading}
+                pagination={{ hideOnSinglePage: true }}
+                onRow={(record) => ({
+                    onClick: () => handleOpenStudent(record.id),
+                })}
+            />
+            <StudentCard
+                student={currentStudent}
+                isOpen={isCardOpen}
+                onClose={() => setIsCardOpen(false)}
+                isLoading={isStudentLoading || isStudentFetching}
+            />
         </>
     );
 };

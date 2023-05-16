@@ -10,6 +10,14 @@ tr {
     &.ant-table-row {
         cursor: pointer;
     }
+
+    th {
+        background: none !important;
+    }
+
+    // td {
+    //     border-bottom: 1px solid var(--neutral-03);
+    // }
 }
 
 .student-name {

@@ -13,8 +13,6 @@ import type { CustomTagProps } from 'rc-select/lib/BaseSelect';
 
 import './StudentsFilters.scss';
 
-// const { Option } = Select;
-
 const StudentsFilters: React.FC = () => {
     const dispatch = useAppDispatch();
 
@@ -154,10 +152,6 @@ const StudentsFilters: React.FC = () => {
                     options={statusesOptions}
                     optionFilterProp='label'
                 />
-                {/* {statusesOptions.map((opt) => (
-                        <Option value={opt.value} key={opt.value}>{opt.label}</Option>
-                    ))} */}
-                    <button onClick={() => setSelectedStatuses([])}></button>
             </div>
         </div>
     );
