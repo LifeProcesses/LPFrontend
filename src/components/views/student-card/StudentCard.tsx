@@ -67,8 +67,8 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, isOpen, onClose, isL
                         <Button type='primary'>Добавить собеседование</Button>
                     </div>
                     <p>Найдено позиций: {filteredInterviews?.length}</p>
-                    {filteredInterviews?.map((interview, i) => (
-                        <StudentInterview interview={interview} key={i} />
+                    {filteredInterviews?.map((interview) => (
+                        <StudentInterview interview={interview} key={interview.id} />
                     ))}
                 </div>
             )}

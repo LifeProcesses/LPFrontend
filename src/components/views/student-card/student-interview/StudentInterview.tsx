@@ -3,15 +3,19 @@ import { Avatar, Input, Tag } from 'antd';
 import { useCallback, useMemo, useState } from 'react';
 
 import { InterviewPayload } from 'api/Models';
-import { STUDENT_STATUS_LABEL, STUDENT_STATUS_TAG_CLASS } from 'helpers/constants';
+import { useAddInterviewCommentMutation } from 'api/routes/studentsApi';
 
-import './StudentInterview.scss';
+import { STUDENT_STATUS_LABEL, STUDENT_STATUS_TAG_CLASS } from 'helpers/constants';
 import { getDateFromTimestamp, getTimeFromTimestamp } from 'helpers/timeFormatting';
 
-const StudentInterview: React.FC<{ interview: InterviewPayload }> = ({ interview }) => {
-    const { company, position, status, comments } = interview;
+import './StudentInterview.scss';
 
+const StudentInterview: React.FC<{ interview: InterviewPayload }> = ({ interview }) => {
+    const [sendComment] = useAddInterviewCommentMutation();
+
+    const { company, position, status, comments } = interview;
     const [isCollapsed, setIsCollapsed] = useState<boolean>(true);
+    const [comment, setComment] = useState<string>('');
 
     const visibleComments = useMemo(() => {
         if (!isCollapsed) {
@@ -21,9 +25,23 @@ const StudentInterview: React.FC<{ interview: InterviewPayload }> = ({ interview
         }
     }, [comments, isCollapsed]);
 
-    const handleAddComment = useCallback((comment: string) => {
-        console.log(comment);
-    }, []);
+    const handleAddComment = useCallback(
+        (text: string) => {
+            console.log(text);
+            // sendComment({
+            //     companyId: company.id,
+            //     interviewId: interview.id,
+            //     text
+            // })
+            //     .unwrap()
+            //     .catch((e) => {
+            //         console.log('smth went wrong');
+            //     });
+            setComment('');
+        },
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [company.id, interview.id, sendComment],
+    );
 
     return (
         <div className='student-interview'>
@@ -37,6 +55,10 @@ const StudentInterview: React.FC<{ interview: InterviewPayload }> = ({ interview
                 </Tag>
             </div>
             <Input
+                value={comment}
+                onChange={(e) => {
+                    setComment(e.currentTarget.value);
+                }}
                 onPressEnter={(e) => {
                     handleAddComment(e.currentTarget.value);
                 }}
@@ -46,7 +68,6 @@ const StudentInterview: React.FC<{ interview: InterviewPayload }> = ({ interview
             />
             <div className='student-interview__comments'>
                 {visibleComments.map((comment, i) => (
-                    // TODO: change to index
                     <div className='comment' key={i}>
                         <div className='comment_info'>
                             <Avatar src={comment.author.image} size={40} />

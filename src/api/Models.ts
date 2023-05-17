@@ -38,6 +38,7 @@ export interface StudentInfoPayload {
 }
 
 export interface InterviewPayload {
+    id: number;
     company: {
         id: number;
         name: string;
@@ -82,4 +83,8 @@ export interface PositionPayload {
     companies: CompanyPayload[];
 }
 
-export interface AModel {}
+export interface CommentModel {
+    companyId: number;
+    interviewId: number;
+    text: string;
+}

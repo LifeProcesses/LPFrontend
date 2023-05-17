@@ -150,6 +150,7 @@ export const STUDENT_INFO_MOCK: StudentInfoPayload = {
     ],
     interviews: [
         {
+            id: 1,
             company: {
                 id: 1,
                 name: 'NTR',
@@ -187,6 +188,7 @@ export const STUDENT_INFO_MOCK: StudentInfoPayload = {
             ],
         },
         {
+            id: 2,
             company: {
                 id: 2,
                 name: 'Kreosoft',
@@ -206,6 +208,7 @@ export const STUDENT_INFO_MOCK: StudentInfoPayload = {
             ],
         },
         {
+            id: 3,
             company: {
                 id: 3,
                 name: 'Red Mad Robot',
