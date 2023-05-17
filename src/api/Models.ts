@@ -43,13 +43,13 @@ export interface InterviewPayload {
         name: string;
     };
     position: string;
-    status: string;
+    status: StatusType;
     comments: CommentPayload[];
 }
 
 export interface CommentPayload {
     author: {
-        id: string;
+        id: number;
         name: string;
         image: string;
     };

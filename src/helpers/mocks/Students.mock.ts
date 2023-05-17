@@ -1,4 +1,4 @@
-import { StudentsPayload } from 'api/Models';
+import { StudentInfoPayload, StudentsPayload } from 'api/Models';
 import { StatusType } from 'helpers/types';
 
 export const STUDENTS_MOCK: StudentsPayload = {
@@ -133,6 +133,96 @@ export const STUDENTS_MOCK: StudentsPayload = {
                 },
             ],
             lastActivity: new Date(),
+        },
+    ],
+};
+
+export const STUDENT_INFO_MOCK: StudentInfoPayload = {
+    id: 132,
+    name: 'Дорохин Владислав',
+    image: '',
+    position: 'Frontend-разработчик',
+    contacts: [
+        {
+            name: 'string',
+            value: 'string',
+        },
+    ],
+    interviews: [
+        {
+            company: {
+                id: 1,
+                name: 'NTR',
+            },
+            position: 'Frontend React',
+            status: StatusType.Accepted,
+            comments: [
+                {
+                    author: {
+                        id: 1,
+                        name: 'Дорохин Владислав',
+                        image: 'string',
+                    },
+                    timestamp: new Date(),
+                    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis ex non felis consequat rutrum. Vestibulum tempus leo eget ante eleifend, ac tempus ex scelerisque. Fusce in justo faucibus, laoreet velit sed, scelerisque lacus',
+                },
+                {
+                    author: {
+                        id: 1,
+                        name: 'Дорохин Владислав',
+                        image: 'string',
+                    },
+                    timestamp: new Date(),
+                    text: 'Phasellus leo dui, sodales eu vehicula vitae, pharetra sed felis. Curabitur eros elit, blandit at tempor',
+                },
+                {
+                    author: {
+                        id: 1,
+                        name: 'Дорохин Владислав',
+                        image: 'string',
+                    },
+                    timestamp: new Date(),
+                    text: 'Sed ultricies tellus a nunc ultrices auctor.',
+                },
+            ],
+        },
+        {
+            company: {
+                id: 2,
+                name: 'Kreosoft',
+            },
+            position: 'Frontend Vue',
+            status: StatusType.Issued,
+            comments: [
+                {
+                    author: {
+                        id: 1,
+                        name: 'string',
+                        image: 'string',
+                    },
+                    timestamp: new Date(),
+                    text: 'string',
+                },
+            ],
+        },
+        {
+            company: {
+                id: 3,
+                name: 'Red Mad Robot',
+            },
+            position: 'Backend PHP',
+            status: StatusType.Refused,
+            comments: [
+                {
+                    author: {
+                        id: 1,
+                        name: 'string',
+                        image: 'string',
+                    },
+                    timestamp: new Date(),
+                    text: 'string',
+                },
+            ],
         },
     ],
 };

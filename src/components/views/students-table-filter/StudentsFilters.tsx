@@ -1,15 +1,13 @@
-import { Input, Select, Tag } from 'antd';
+import { Input, Select } from 'antd';
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
+import { tagRender } from 'components/shared/selectTag/SelectTag';
 import { STUDENT_STATUS_LABEL } from 'helpers/constants';
 
 import { useAppDispatch } from 'hooks/useAppDispatch';
 import { useAppSelector } from 'hooks/useAppSelector';
 import { setFilters } from 'store/reducers/studentsSlice';
-
-import type { BaseSelectRef } from 'rc-select';
-import type { CustomTagProps } from 'rc-select/lib/BaseSelect';
 
 import './StudentsFilters.scss';
 
@@ -22,8 +20,6 @@ const StudentsFilters: React.FC = () => {
     const [selectedCompanies, setSelectedCompanies] = useState<number[]>([]);
     const [selectedPositions, setSelectedPositions] = useState<number[]>([]);
     const [selectedStatuses, setSelectedStatuses] = useState<string[]>([]);
-
-    const selectRef = useRef<BaseSelectRef>(null);
 
     const companiesOptions = useMemo(
         () =>
@@ -89,19 +85,6 @@ const StudentsFilters: React.FC = () => {
         [dispatch, filteredName, selectedCompanies, selectedPositions, selectedStatuses],
     );
 
-    const tagRender = ({ label, value, closable, onClose }: CustomTagProps) => {
-        const onPreventMouseDown = (event: React.MouseEvent<HTMLSpanElement>) => {
-            event.preventDefault();
-            event.stopPropagation();
-            onClose();
-        };
-        return (
-            <Tag onMouseDown={onPreventMouseDown} onClose={onClose} className='lp-tag lp-tag_filter'>
-                {label}
-            </Tag>
-        );
-    };
-
     return (
         <div className='students-filters'>
             <Input
@@ -113,7 +96,6 @@ const StudentsFilters: React.FC = () => {
             <div className='filter-wrapper'>
                 <label>Компания</label>
                 <Select
-                    ref={selectRef}
                     mode='multiple'
                     allowClear
                     tagRender={tagRender}
