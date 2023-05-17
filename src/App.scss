@@ -5,6 +5,10 @@
     height: 100vh;
 }
 
+* {
+    font-family: 'Inter', sans-serif;
+}
+
 :root {
     --primary: #2339ff;
     --primary-01: #1673CF;
@@ -12,8 +16,9 @@
     --neutral-01: #686666;
     --neutral-02: #afacac;
     --neutral-03: #969696;
-    --neutral-04: #f2f2f2;
-    --neutral-05: #00000075;
+    --neutral-04: #00000075;
+    --light-00: #f2f2f2;
+    --light-01: #E9F0F8;
     --green: #02be22;
     --blue: #1442e3;
     --yellow: #ffd930;
