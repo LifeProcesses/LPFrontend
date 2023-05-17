@@ -53,7 +53,7 @@ export const STUDENTS_MOCK: StudentsPayload = {
             interviewsCount: 12,
             companies: [
                 {
-                    id: 13,
+                    id: 1,
                     name: 'NTR',
                 },
             ],

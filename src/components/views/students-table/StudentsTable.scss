@@ -12,13 +12,22 @@ tr {
     }
 
     th {
-        border-top: 1px solid #f0f0f0;
+        border-top: 1px solid;
+        border-color: var(--neutral-05) !important;
         background: none !important;
+
+        &:first-child {
+            border-start-start-radius: 0 !important;
+        }
+
+        &:last-child {
+            border-start-end-radius: 0 !important;
+        }
     }
 
-    // td {
-    //     border-bottom: 1px solid var(--neutral-03);
-    // }
+    td {
+        border-color: var(--neutral-06) !important;
+    }
 }
 
 .student-name {
