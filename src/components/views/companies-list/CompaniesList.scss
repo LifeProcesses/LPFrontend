@@ -1,4 +1,6 @@
-.positions-list {
+@import 'styles/typography';
+
+.companies-list {
     display: flex;
     flex-direction: column;
 
@@ -9,15 +11,25 @@
     }
 
     &__info {
+        padding: 10px;
+    }
+
+    &__item {
+        @include text-18-27-700;
+
+        cursor: pointer;
+
         display: flex;
         flex-direction: row;
         justify-content: space-between;
 
         padding: 10px;
+        width: 100%;
+
+        border-bottom: 2px solid var(--neutral-01);
     }
-    
+
     .ant-list-item {
         border-block-end: none !important;
     }
 }
-
