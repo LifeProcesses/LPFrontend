@@ -15,8 +15,9 @@ function App() {
                     <Route path='' element={<Navigate replace to='/students' />} />
                     <Route path='/*' element={<TemplatePageLayout />}>
                         <Route path='students' element={<StudentsPage />} />
-                        <Route path='companies' element={<CompaniesPage />} />
                         <Route path='positions' element={<PositionsPage />} />
+                        <Route path='companies' element={<CompaniesPage />} />
+                        <Route path='companies/:id' element={<CompaniesPage />} />
                     </Route>
                 </Routes>
             </div>

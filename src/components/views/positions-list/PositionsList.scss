@@ -1,0 +1,22 @@
+.positions-list {
+    display: flex;
+    flex-direction: column;
+
+    width: min(700px, 100%);
+
+    &__search {
+        margin-bottom: 30px;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        padding: 10px;
+    }
+}
+
+.ant-list-item {
+    border-block-end: none !important;
+}
