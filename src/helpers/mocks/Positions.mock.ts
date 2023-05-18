@@ -16,6 +16,18 @@ export const POSITIONS_MOCK: PositionsPayload = {
                     plan: 11,
                     taken: 5,
                 },
+                {
+                    id: 2,
+                    name: 'Kreosoft',
+                    plan: 11,
+                    taken: 5,
+                },
+                {
+                    id: 4,
+                    name: 'Тинькофф',
+                    plan: 11,
+                    taken: 5,
+                },
             ],
         },
         {
