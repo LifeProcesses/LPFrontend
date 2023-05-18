@@ -1,0 +1,33 @@
+@import 'styles/typography';
+
+.student-card {
+    &__info {
+        display: flex;
+        flex-direction: row;
+
+        margin-bottom: 30px;
+        padding: 0 10px;
+
+        &_name {
+            @include text-15-18-700;
+        }
+    }
+
+    &__control {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        margin-bottom: 35px;
+        padding: 0 10px;
+
+        .ant-select {
+            min-width: 150px;
+        }
+
+        button {
+            background-color: var(--primary-01);
+            border-radius: 20px;
+        }
+    }
+}

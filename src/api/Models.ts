@@ -25,6 +25,39 @@ export interface StudentPayload {
     lastActivity: Date;
 }
 
+export interface StudentInfoPayload {
+    id: number;
+    name: string;
+    image: string;
+    position: string;
+    contacts: {
+        name: string;
+        value: string;
+    }[];
+    interviews: InterviewPayload[];
+}
+
+export interface InterviewPayload {
+    id: number;
+    company: {
+        id: number;
+        name: string;
+    };
+    position: string;
+    status: StatusType;
+    comments: CommentPayload[];
+}
+
+export interface CommentPayload {
+    author: {
+        id: number;
+        name: string;
+        image: string;
+    };
+    timestamp: Date;
+    text: string;
+}
+
 export interface CompaniesPayload {
     companies: CompanyPayload[];
 }
@@ -50,4 +83,8 @@ export interface PositionPayload {
     companies: CompanyPayload[];
 }
 
-export interface AModel {}
+export interface CommentModel {
+    companyId: number;
+    interviewId: number;
+    text: string;
+}

@@ -10,6 +10,24 @@ tr {
     &.ant-table-row {
         cursor: pointer;
     }
+
+    th {
+        border-top: 1px solid;
+        border-color: var(--neutral-05) !important;
+        background: none !important;
+
+        &:first-child {
+            border-start-start-radius: 0 !important;
+        }
+
+        &:last-child {
+            border-start-end-radius: 0 !important;
+        }
+    }
+
+    td {
+        border-color: var(--neutral-06) !important;
+    }
 }
 
 .student-name {

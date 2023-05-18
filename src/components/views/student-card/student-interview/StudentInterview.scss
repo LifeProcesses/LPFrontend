@@ -1,0 +1,74 @@
+@import 'styles/typography';
+
+.student-interview {
+    margin-bottom: 20px;
+    padding: 20px;
+
+    border: 1px solid var(--neutral-00);
+    border-radius: 20px;
+
+    &__info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        margin-bottom: 20px;
+
+        div p {
+            @include text-15-18-700;
+            margin: 2px 0;
+        }
+    }
+
+    &__input {
+        margin-bottom: 25px;
+
+        border: 1px solid var(--neutral-00);
+        border-radius: 18px;
+    }
+
+    &__comments {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .comment {
+            padding: 10px 12px 17px;
+
+            background: var(--light-00);
+            border-radius: 20px;
+
+            &_info {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 12px;
+
+                margin-bottom: 8px;
+
+                &_name {
+                    @include text-14-17-700;
+                    color: var(--blue);
+                }
+
+                &_date {
+                    color: var(--neutral-04);
+                }
+            }
+
+            &_text {
+                margin-left: 52px;
+            }
+        }
+    }
+
+    &__collapse-btn {
+        cursor: pointer;
+
+        margin-top: 15px;
+        margin-left: 2px;
+
+        color: var(--blue);
+    }
+}

@@ -3,8 +3,14 @@
 
     &-content {
         overflow-y: auto;
-        
+
         padding: 20px 50px;
         background-color: #fff;
+    }
+
+    &-footer {
+        background-color: var(--light-01);
+
+        text-align: center;
     }
 }

@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 
-import { StudentsPayload } from 'api/Models';
+import { CommentModel, StudentInfoPayload, StudentsPayload } from 'api/Models';
 
 export const studentsApi = createApi({
     reducerPath: 'studentsApi',
@@ -26,11 +26,18 @@ export const studentsApi = createApi({
                 }),
                 providesTags: [{ type: '' }],
             }),
-            examplePost: build.mutation<null, null>({
-                query: (body) => ({
-                    url: ``,
+            getStudentInfo: build.query<StudentInfoPayload, number>({
+                query: (id) => ({
+                    url: `students/${id}`,
+                    method: 'GET',
+                }),
+                providesTags: [{ type: '' }],
+            }),
+            addInterviewComment: build.mutation<void, CommentModel>({
+                query: (comment) => ({
+                    url: `companies/${comment.companyId}/interviews/${comment.interviewId}/comments`,
                     method: 'POST',
-                    body,
+                    body: comment.text,
                 }),
                 invalidatesTags: [{ type: '' }],
             }),
@@ -38,4 +45,4 @@ export const studentsApi = createApi({
     },
 });
 
-export const { useGetStudentsListQuery } = studentsApi;
+export const { useGetStudentsListQuery, useLazyGetStudentInfoQuery, useAddInterviewCommentMutation } = studentsApi;

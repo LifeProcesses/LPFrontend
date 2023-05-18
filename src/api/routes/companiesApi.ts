@@ -6,7 +6,7 @@ export const companiesApi = createApi({
     reducerPath: 'companiesApi',
     tagTypes: [''],
     baseQuery: fetchBaseQuery({
-        baseUrl: ``,
+        baseUrl: `companies/`,
         prepareHeaders: (headers) => {
             // get token from LS
             const token = '';
@@ -21,18 +21,10 @@ export const companiesApi = createApi({
         return {
             getCompaniesList: build.query<CompaniesPayload, void>({
                 query: () => ({
-                    url: `companies`,
+                    url: ``,
                     method: 'GET',
                 }),
                 providesTags: [{ type: '' }],
-            }),
-            examplePost: build.mutation<null, null>({
-                query: (body) => ({
-                    url: ``,
-                    method: 'POST',
-                    body,
-                }),
-                invalidatesTags: [{ type: '' }],
             }),
         };
     },
