@@ -26,6 +26,13 @@
     letter-spacing: 0.02em;
 }
 
+@mixin text-18-24-400 {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}
+
 @mixin text-18-27-400 {
     font-size: 18px;
     line-height: 27px;
@@ -36,6 +43,13 @@
 @mixin text-18-27-700 {
     font-size: 18px;
     line-height: 27px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+@mixin text-40-48-700 {
+    font-size: 40px;
+    line-height: 48px;
     font-weight: 700;
     letter-spacing: 0.02em;
 }

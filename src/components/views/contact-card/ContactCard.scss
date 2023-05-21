@@ -1,0 +1,25 @@
+@import 'styles/typography';
+
+.contact-card {
+    &__info {
+        display: flex;
+        flex-direction: row;
+
+        margin-bottom: 30px;
+        padding: 0 10px;
+
+        &_name {
+            @include text-15-18-700;
+        }
+    }
+
+    &__contacts {
+        > p:first-child {
+            @include text-15-18-700;
+        }
+
+        > * {
+            margin-bottom: 30px;
+        }
+    }
+}

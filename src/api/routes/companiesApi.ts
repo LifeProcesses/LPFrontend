@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 
-import { CompaniesPayload } from 'api/Models';
+import { CompaniesPayload, CompanyDetailPayload, CompanyPositionsListPayload } from 'api/Models';
 
 export const companiesApi = createApi({
     reducerPath: 'companiesApi',
@@ -26,8 +26,22 @@ export const companiesApi = createApi({
                 }),
                 providesTags: [{ type: '' }],
             }),
+            getCompanyDetails: build.query<CompanyDetailPayload, number>({
+                query: (id) => ({
+                    url: `${id}`,
+                    method: 'GET',
+                }),
+                providesTags: [{ type: '' }],
+            }),
+            getCompanyPositions: build.query<CompanyPositionsListPayload, number>({
+                query: (id) => ({
+                    url: `${id}/positions`,
+                    method: 'GET',
+                }),
+                providesTags: [{ type: '' }],
+            }),
         };
     },
 });
 
-export const { useGetCompaniesListQuery } = companiesApi;
+export const { useGetCompaniesListQuery, useGetCompanyDetailsQuery, useGetCompanyPositionsQuery } = companiesApi;

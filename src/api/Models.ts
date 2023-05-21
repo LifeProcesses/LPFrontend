@@ -88,3 +88,44 @@ export interface CommentModel {
     interviewId: number;
     text: string;
 }
+
+export interface CompanyDetailPayload {
+    id: number;
+    name: string;
+    description: string;
+    image: string;
+    representatives: CompanyContactPayload[];
+    contacts: CompanyContactPayload[];
+}
+
+export interface CompanyContactPayload {
+    id: number;
+    name: string;
+    position: string;
+    image: string;
+    contactType: string;
+    value: string;
+}
+
+export interface CompanyPositionsListPayload {
+    plan: number;
+    taken: number;
+    positions: CompanyPositionPayload[];
+}
+
+export interface CompanyPositionPayload {
+    id: number;
+    positionTypeId: number;
+    name: string;
+    plan: number;
+    taken: number;
+    students: CompanyPositionStudentPayload[];
+}
+
+export interface CompanyPositionStudentPayload {
+    id: number;
+    name: string;
+    image: string;
+    status: StatusType;
+    lastActivity: Date;
+}
