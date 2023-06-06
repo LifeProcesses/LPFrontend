@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { StatusType } from 'helpers/types';
+import { InterviewStatusType, StudentStatusType } from 'helpers/types';
 
 export interface StudentsPayload {
     students: StudentPayload[];
@@ -10,7 +10,7 @@ export interface StudentPayload {
     name: string;
     image: string;
     status: {
-        type: StatusType;
+        type: StudentStatusType;
         number: number;
     };
     interviewsCount: number;
@@ -44,7 +44,7 @@ export interface InterviewPayload {
         name: string;
     };
     position: string;
-    status: StatusType;
+    status: InterviewStatusType;
     comments: CommentPayload[];
 }
 
@@ -89,6 +89,12 @@ export interface CommentModel {
     text: string;
 }
 
+export interface ChangeInterviewStatusModel {
+    companyId: number;
+    interviewId: number;
+    status: string;
+}
+
 export interface CompanyDetailPayload {
     id: number;
     name: string;
@@ -126,6 +132,6 @@ export interface CompanyPositionStudentPayload {
     id: number;
     name: string;
     image: string;
-    status: StatusType;
+    status: StudentStatusType;
     lastActivity: Date;
 }

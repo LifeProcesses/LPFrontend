@@ -1,5 +1,5 @@
 import { CompaniesPayload, CompanyDetailPayload, CompanyPositionsListPayload } from 'api/Models';
-import { StatusType } from 'helpers/types';
+import { StudentStatusType } from 'helpers/types';
 
 export const COMPANIES_MOCK: CompaniesPayload = {
     companies: [
@@ -81,28 +81,28 @@ export const COMPANY_POSITIONS_MOCK: CompanyPositionsListPayload = {
                     id: 132,
                     name: 'Дорохин Владислав',
                     image: '',
-                    status: StatusType.Accepted,
+                    status: StudentStatusType.Accepted,
                     lastActivity: new Date(),
                 },
                 {
                     id: 4,
                     name: 'Дорохин Владислав',
                     image: '',
-                    status: StatusType.Interview,
+                    status: StudentStatusType.Interview,
                     lastActivity: new Date(),
                 },
                 {
                     id: 11,
                     name: 'Дорохин Владислав',
                     image: '',
-                    status: StatusType.Refused,
+                    status: StudentStatusType.Refused,
                     lastActivity: new Date(),
                 },
                 {
                     id: 333,
                     name: 'Дорохин Владислав',
                     image: '',
-                    status: StatusType.Issued,
+                    status: StudentStatusType.Issued,
                     lastActivity: new Date(),
                 },
             ],
@@ -118,7 +118,7 @@ export const COMPANY_POSITIONS_MOCK: CompanyPositionsListPayload = {
                     id: 11,
                     name: 'Дорохин Владислав',
                     image: '',
-                    status: StatusType.Accepted,
+                    status: StudentStatusType.Accepted,
                     lastActivity: new Date(),
                 },
             ],

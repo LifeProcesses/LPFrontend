@@ -1,5 +1,5 @@
 import { StudentInfoPayload, StudentsPayload } from 'api/Models';
-import { StatusType } from 'helpers/types';
+import { InterviewStatusType, StudentStatusType } from 'helpers/types';
 
 export const STUDENTS_MOCK: StudentsPayload = {
     students: [
@@ -8,7 +8,7 @@ export const STUDENTS_MOCK: StudentsPayload = {
             name: 'Дорохин Владислав',
             image: '',
             status: {
-                type: StatusType.Accepted,
+                type: StudentStatusType.Accepted,
                 number: 0,
             },
             interviewsCount: 12,
@@ -47,7 +47,7 @@ export const STUDENTS_MOCK: StudentsPayload = {
             name: 'Дорохин Владислав',
             image: '',
             status: {
-                type: StatusType.Issued,
+                type: StudentStatusType.Issued,
                 number: 4,
             },
             interviewsCount: 12,
@@ -70,7 +70,7 @@ export const STUDENTS_MOCK: StudentsPayload = {
             name: 'Дорохин Владислав',
             image: '',
             status: {
-                type: StatusType.Interview,
+                type: StudentStatusType.Interview,
                 number: 0,
             },
             interviewsCount: 12,
@@ -93,7 +93,7 @@ export const STUDENTS_MOCK: StudentsPayload = {
             name: 'Дорохин Владислав',
             image: '',
             status: {
-                type: StatusType.Empty,
+                type: StudentStatusType.Empty,
                 number: 0,
             },
             interviewsCount: 12,
@@ -116,7 +116,7 @@ export const STUDENTS_MOCK: StudentsPayload = {
             name: 'Дорохин Владислав',
             image: '',
             status: {
-                type: StatusType.Refused,
+                type: StudentStatusType.Refused,
                 number: 0,
             },
             interviewsCount: 0,
@@ -156,7 +156,7 @@ export const STUDENT_INFO_MOCK: StudentInfoPayload = {
                 name: 'NTR',
             },
             position: 'Frontend React',
-            status: StatusType.Accepted,
+            status: InterviewStatusType.Accepted,
             comments: [
                 {
                     author: {
@@ -194,7 +194,7 @@ export const STUDENT_INFO_MOCK: StudentInfoPayload = {
                 name: 'Kreosoft',
             },
             position: 'Frontend Vue',
-            status: StatusType.Issued,
+            status: InterviewStatusType.Issued,
             comments: [
                 {
                     author: {
@@ -214,7 +214,7 @@ export const STUDENT_INFO_MOCK: StudentInfoPayload = {
                 name: 'Red Mad Robot',
             },
             position: 'Backend PHP',
-            status: StatusType.Refused,
+            status: InterviewStatusType.Refused,
             comments: [
                 {
                     author: {
