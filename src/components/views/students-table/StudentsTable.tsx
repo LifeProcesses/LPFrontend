@@ -100,7 +100,7 @@ const StudentsTable: React.FC<{ isLoading: boolean }> = ({ isLoading }) => {
     );
 
     return (
-        <>
+        <div className='students-table'>
             <p>Найдено студентов: {students.length}</p>
             <Table
                 columns={columns}
@@ -117,7 +117,7 @@ const StudentsTable: React.FC<{ isLoading: boolean }> = ({ isLoading }) => {
                 onClose={() => setIsCardOpen(false)}
                 isLoading={isStudentLoading || isStudentFetching}
             />
-        </>
+        </div>
     );
 };
 

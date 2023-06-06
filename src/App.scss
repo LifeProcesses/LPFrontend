@@ -1,4 +1,5 @@
 @import 'styles/UI/tag';
+@import 'styles/typography';
 
 .App {
     max-width: 100vw;
@@ -7,6 +8,32 @@
 
 * {
     font-family: 'Inter', sans-serif;
+}
+
+tr {
+    @include text-15-18-400;
+
+    > *:last-child {
+        text-align: end !important;
+    }
+
+    th {
+        border-top: 1px solid;
+        border-color: var(--neutral-05) !important;
+        background: none !important;
+
+        &:first-child {
+            border-start-start-radius: 0 !important;
+        }
+
+        &:last-child {
+            border-start-end-radius: 0 !important;
+        }
+    }
+
+    td {
+        border-color: var(--neutral-06) !important;
+    }
 }
 
 :root {
