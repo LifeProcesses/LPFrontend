@@ -1,51 +1,28 @@
 @import 'styles/typography';
 
-tr {
-    @include text-15-18-400;
-
-    > *:last-child {
-        text-align: end !important;
-    }
-
-    &.ant-table-row {
-        cursor: pointer;
-    }
-
-    th {
-        border-top: 1px solid;
-        border-color: var(--neutral-05) !important;
-        background: none !important;
-
-        &:first-child {
-            border-start-start-radius: 0 !important;
-        }
-
-        &:last-child {
-            border-start-end-radius: 0 !important;
+.students-table {
+    tr {
+        &.ant-table-row {
+            cursor: pointer;
         }
     }
 
-    td {
-        border-color: var(--neutral-06) !important;
+    .student-name {
+        display: flex;
+        align-items: center;
+    }
+
+    .cell-wrapper {
+        p {
+            margin: 0;
+        }
+
+        &__total {
+            color: var(--primary);
+        }
+
+        &_status &__total {
+            margin: 4px 4px 0;
+        }
     }
 }
-
-.student-name {
-    display: flex;
-    align-items: center;
-}
-
-.cell-wrapper {
-    p {
-        margin: 0;
-    }
-
-    &__total {
-        color: var(--primary);
-    }
-
-    &_status &__total {
-        margin: 4px 4px 0;
-    }
-}
-

@@ -1,0 +1,35 @@
+@import 'styles/typography';
+
+.company-details {
+    > * {
+        margin-bottom: 18px;
+    }
+
+    &__title {
+        &_name {
+            @include text-40-48-700;
+
+            margin: 0;
+        }
+    }
+
+    &__description {
+        @include text-18-24-400;
+    }
+
+    &__contact {
+        &_title {
+            @include text-18-27-700;
+
+            margin-right: 10px;
+        }
+
+        &_item {
+            @include text-18-24-400;
+
+            cursor: pointer;
+
+            color: var(--blue);
+        }
+    }
+}

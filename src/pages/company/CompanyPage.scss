@@ -1,0 +1,16 @@
+@import 'styles/typography';
+
+.company-page {
+    margin: auto;
+    width: min(800px, 100%);
+
+    &__back {
+        @include text-18-27-400;
+
+        cursor: pointer;
+
+        margin-bottom: 20px;
+
+        color: var(--blue);
+    }
+}
