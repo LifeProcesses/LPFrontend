@@ -1,7 +1,8 @@
-import { Avatar, Button, Drawer, Select } from 'antd';
+import { Avatar, Drawer, Select } from 'antd';
 
 import { useMemo, useState } from 'react';
 
+import CreateInterviewForm from './create-interview-form/CreateInterviewForm';
 import StudentInterview from './student-interview/StudentInterview';
 import { StudentCardProps } from './StudentCard.interface';
 
@@ -64,7 +65,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, isOpen, onClose, isL
                             placeholder='Все'
                         />
                         <div style={{ flexGrow: 1 }}></div>
-                        <Button type='primary'>Добавить собеседование</Button>
+                        <CreateInterviewForm />
                     </div>
                     <p>Найдено позиций: {filteredInterviews?.length}</p>
                     {filteredInterviews?.map((interview) => (

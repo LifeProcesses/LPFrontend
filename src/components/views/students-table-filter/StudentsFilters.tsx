@@ -5,7 +5,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { FilterTagComponent } from 'components/shared/selectTag/SelectTag';
 import { STUDENT_STATUS_LABEL } from 'helpers/constants';
 
-import { StatusType } from 'helpers/types';
+import { StudentStatusType } from 'helpers/types';
 import { useAppDispatch } from 'hooks/useAppDispatch';
 import { useAppSelector } from 'hooks/useAppSelector';
 import { setFilters } from 'store/reducers/studentsSlice';
@@ -105,7 +105,7 @@ const StudentsFilters: React.FC = () => {
                 {selectedStatuses.map((status) => (
                     <FilterTagComponent
                         key={status}
-                        label={`Статус: ${STUDENT_STATUS_LABEL[status as StatusType]}`}
+                        label={`Статус: ${STUDENT_STATUS_LABEL[status as StudentStatusType]}`}
                         onClose={() => {
                             setSelectedStatuses((prev) => prev.filter((stat) => stat !== status));
                         }}

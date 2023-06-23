@@ -35,7 +35,6 @@
 
             label {
                 @include text-15-18-400;
-                width: 100px;
                 margin-right: 8px;
             }
 
@@ -51,10 +50,6 @@
                     margin: 2px;
                 }
             }
-        }
-
-        p {
-            cursor: pointer;
         }
     }
 }

@@ -19,6 +19,10 @@
             @include text-15-18-700;
             margin: 2px 0;
         }
+
+        .lp-tag {
+            cursor: pointer;
+        }
     }
 
     &__input {
