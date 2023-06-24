@@ -5,7 +5,7 @@ export const STUDENTS_MOCK: StudentPayload[] = [
     {
         id: 132,
         name: 'Дорохин Владислав',
-        image: '',
+        image: 'https://static.tildacdn.com/tild3431-3062-4262-a138-333662326332/png-clipart-teacher-.png',
         status: {
             type: StudentStatusType.Accepted,
             number: 0,
@@ -43,8 +43,8 @@ export const STUDENTS_MOCK: StudentPayload[] = [
     },
     {
         id: 4,
-        name: 'Дорохин Владислав',
-        image: '',
+        name: 'Скорополохов Владимир',
+        image: 'https://static.tildacdn.com/tild3431-3062-4262-a138-333662326332/png-clipart-teacher-.png',
         status: {
             type: StudentStatusType.Issued,
             number: 4,
@@ -66,8 +66,8 @@ export const STUDENTS_MOCK: StudentPayload[] = [
     },
     {
         id: 11,
-        name: 'Дорохин Владислав',
-        image: '',
+        name: 'Иванов Саша',
+        image: 'https://static.tildacdn.com/tild3431-3062-4262-a138-333662326332/png-clipart-teacher-.png',
         status: {
             type: StudentStatusType.Interview,
             number: 0,
@@ -89,8 +89,8 @@ export const STUDENTS_MOCK: StudentPayload[] = [
     },
     {
         id: 333,
-        name: 'Дорохин Владислав',
-        image: '',
+        name: 'Вишневский Игорь',
+        image: 'https://static.tildacdn.com/tild3431-3062-4262-a138-333662326332/png-clipart-teacher-.png',
         status: {
             type: StudentStatusType.Empty,
             number: 0,
@@ -112,8 +112,8 @@ export const STUDENTS_MOCK: StudentPayload[] = [
     },
     {
         id: 243,
-        name: 'Дорохин Владислав',
-        image: '',
+        name: 'Каракин Вячеслав',
+        image: 'https://static.tildacdn.com/tild3431-3062-4262-a138-333662326332/png-clipart-teacher-.png',
         status: {
             type: StudentStatusType.Refused,
             number: 0,
@@ -138,7 +138,7 @@ export const STUDENTS_MOCK: StudentPayload[] = [
 export const STUDENT_INFO_MOCK: StudentInfoPayload = {
     id: 132,
     name: 'Дорохин Владислав',
-    image: '',
+    image: 'https://static.tildacdn.com/tild3431-3062-4262-a138-333662326332/png-clipart-teacher-.png',
     position: 'Frontend-разработчик',
     contacts: [
         {
