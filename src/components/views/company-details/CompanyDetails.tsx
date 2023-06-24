@@ -1,3 +1,4 @@
+import { Avatar } from 'antd';
 import { useCallback, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -61,8 +62,11 @@ const CompanyDetails: React.FC = () => {
                 {companyDetails ? (
                     <>
                         <div className='company-details__title'>
+                            <Avatar
+                                src={companyDetails.image && <img src={companyDetails.image} alt='logo' />}
+                                size={80}
+                            />
                             <h1 className='company-details__title_name'>{companyDetails.name}</h1>
-                            <div className='company-details__title_logo'>{companyDetails.image}</div>
                         </div>
                         <div className='company-details__description'>{companyDetails.description}</div>
                         <div className='company-details__contact'>

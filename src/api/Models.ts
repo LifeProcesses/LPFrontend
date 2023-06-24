@@ -128,6 +128,11 @@ export interface CompanyPositionPayload {
     students: CompanyPositionStudentPayload[];
 }
 
+export interface AddCompanyPositionModel {
+    postionTypeId: string;
+    plan: number;
+}
+
 export interface CompanyPositionStudentPayload {
     id: number;
     name: string;

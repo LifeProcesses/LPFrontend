@@ -103,7 +103,10 @@ const StudentInterview: React.FC<{ interview: InterviewPayload }> = ({ interview
                 {visibleComments.map((comment, i) => (
                     <div className='comment' key={i}>
                         <div className='comment_info'>
-                            <Avatar src={comment.author.image} size={40} />
+                            <Avatar
+                                src={comment.author.image && <img src={comment.author.image} alt='avatar' />}
+                                size={40}
+                            />
                             <span className='comment_info_name'>{comment.author.name}</span>
                             <div style={{ flexGrow: 1 }}></div>
                             <span className='comment_info_date'>

@@ -31,7 +31,7 @@ const StudentsTable: React.FC<{ isLoading: boolean }> = ({ isLoading }) => {
             key: 'name',
             render: (_, { name, image }) => (
                 <div className='student-name'>
-                    <Avatar src={image} style={{ marginRight: '17px' }} />
+                    <Avatar src={image && <img src={image} alt='avatar' />} style={{ marginRight: '17px' }} />
                     <span>{name}</span>
                 </div>
             ),

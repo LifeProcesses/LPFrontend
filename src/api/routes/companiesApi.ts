@@ -1,10 +1,16 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 
-import { CompanyDetailPayload, CompanyPayload, CompanyPositionsListPayload, CreateCompanyModel } from 'api/Models';
+import {
+    AddCompanyPositionModel,
+    CompanyDetailPayload,
+    CompanyPayload,
+    CompanyPositionsListPayload,
+    CreateCompanyModel,
+} from 'api/Models';
 
 export const companiesApi = createApi({
     reducerPath: 'companiesApi',
-    tagTypes: [''],
+    tagTypes: ['companyPositions'],
     baseQuery: fetchBaseQuery({
         baseUrl: `http://localhost:8080/companies`,
         prepareHeaders: (headers) => {
@@ -24,29 +30,34 @@ export const companiesApi = createApi({
                     url: ``,
                     method: 'GET',
                 }),
-                providesTags: [{ type: '' }],
             }),
             getCompanyDetails: build.query<CompanyDetailPayload, number>({
                 query: (id) => ({
                     url: `/${id}`,
                     method: 'GET',
                 }),
-                providesTags: [{ type: '' }],
             }),
             getCompanyPositions: build.query<CompanyPositionsListPayload, number>({
                 query: (id) => ({
                     url: `/${id}/positions`,
                     method: 'GET',
                 }),
-                providesTags: [{ type: '' }],
+                providesTags: [{ type: 'companyPositions' }],
             }),
-            createCompany: build.mutation<void, CreateCompanyModel>({
-                query: (company) => ({
+            addCompanyPosition: build.mutation<void, AddCompanyPositionModel>({
+                query: (body) => ({
                     url: ``,
                     method: 'POST',
-                    body: company,
+                    body,
                 }),
-                invalidatesTags: [{ type: '' }],
+                invalidatesTags: [{ type: 'companyPositions' }],
+            }),
+            createCompany: build.mutation<void, CreateCompanyModel>({
+                query: (body) => ({
+                    url: ``,
+                    method: 'POST',
+                    body,
+                }),
             }),
         };
     },
@@ -56,5 +67,6 @@ export const {
     useGetCompaniesListQuery,
     useGetCompanyDetailsQuery,
     useGetCompanyPositionsQuery,
+    useAddCompanyPositionMutation,
     useCreateCompanyMutation,
 } = companiesApi;

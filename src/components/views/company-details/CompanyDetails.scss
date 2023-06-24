@@ -6,6 +6,10 @@
     }
 
     &__title {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
         &_name {
             @include text-40-48-700;
 
