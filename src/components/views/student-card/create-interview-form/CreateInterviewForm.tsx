@@ -17,7 +17,7 @@ const CreateInterviewForm: React.FC = () => {
     const companiesOptions = useMemo(
         () =>
             companies.map((company) => ({
-                value: company.id,
+                value: company.companyId,
                 label: company.name,
             })),
         [companies],

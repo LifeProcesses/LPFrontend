@@ -1,34 +1,32 @@
-import { CompaniesPayload, CompanyDetailPayload, CompanyPositionsListPayload } from 'api/Models';
+import { CompanyPayload, CompanyDetailPayload, CompanyPositionsListPayload } from 'api/Models';
 import { StudentStatusType } from 'helpers/types';
 
-export const COMPANIES_MOCK: CompaniesPayload = {
-    companies: [
-        {
-            id: 1,
-            name: 'NTR',
-            plan: 12,
-            taken: 8,
-        },
-        {
-            id: 2,
-            name: 'Kreosoft',
-            plan: 12,
-            taken: 8,
-        },
-        {
-            id: 3,
-            name: 'Red Mad Robot',
-            plan: 12,
-            taken: 8,
-        },
-        {
-            id: 4,
-            name: 'Tinkoff',
-            plan: 12,
-            taken: 8,
-        },
-    ],
-};
+export const COMPANIES_MOCK: CompanyPayload[] = [
+    {
+        companyId: 1,
+        name: 'NTR',
+        plan: 12,
+        taken: 8,
+    },
+    {
+        companyId: 2,
+        name: 'Kreosoft',
+        plan: 12,
+        taken: 8,
+    },
+    {
+        companyId: 3,
+        name: 'Red Mad Robot',
+        plan: 12,
+        taken: 8,
+    },
+    {
+        companyId: 4,
+        name: 'Tinkoff',
+        plan: 12,
+        taken: 8,
+    },
+];
 
 export const COMPANY_DETAIL_MOCK: CompanyDetailPayload = {
     id: 1,

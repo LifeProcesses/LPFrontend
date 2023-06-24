@@ -24,7 +24,7 @@ const StudentInterview: React.FC<{ interview: InterviewPayload }> = ({ interview
         (status: string) => {
             console.log(status);
             // changeStatus({
-            //     companyId: company.id,
+            //     id: company.id,
             //     interviewId: interview.id,
             //     status,
             // })
@@ -60,7 +60,7 @@ const StudentInterview: React.FC<{ interview: InterviewPayload }> = ({ interview
         (text: string) => {
             console.log(text);
             // sendComment({
-            //     companyId: company.id,
+            //     id: company.id,
             //     interviewId: interview.id,
             //     text
             // })

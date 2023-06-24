@@ -11,19 +11,19 @@ export const POSITIONS_MOCK: PositionsPayload = {
             taken: 5,
             companies: [
                 {
-                    id: 1,
+                    companyId: 1,
                     name: 'NTR',
                     plan: 11,
                     taken: 5,
                 },
                 {
-                    id: 2,
+                    companyId: 2,
                     name: 'Kreosoft',
                     plan: 11,
                     taken: 5,
                 },
                 {
-                    id: 4,
+                    companyId: 4,
                     name: 'Тинькофф',
                     plan: 11,
                     taken: 5,
@@ -37,7 +37,7 @@ export const POSITIONS_MOCK: PositionsPayload = {
             taken: 5,
             companies: [
                 {
-                    id: 1,
+                    companyId: 1,
                     name: 'NTR',
                     plan: 11,
                     taken: 5,
@@ -51,7 +51,7 @@ export const POSITIONS_MOCK: PositionsPayload = {
             taken: 5,
             companies: [
                 {
-                    id: 1,
+                    companyId: 1,
                     name: 'NTR',
                     plan: 11,
                     taken: 5,
@@ -65,7 +65,7 @@ export const POSITIONS_MOCK: PositionsPayload = {
             taken: 5,
             companies: [
                 {
-                    id: 1,
+                    companyId: 1,
                     name: 'NTR',
                     plan: 11,
                     taken: 5,

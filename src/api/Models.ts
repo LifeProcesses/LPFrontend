@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 import { InterviewStatusType, StudentStatusType } from 'helpers/types';
 
-export interface StudentsPayload {
-    students: StudentPayload[];
-}
+// export interface StudentsPayload {
+//     students: StudentPayload[];
+// }
 
 export interface StudentPayload {
     id: number;
@@ -58,12 +58,12 @@ export interface CommentPayload {
     text: string;
 }
 
-export interface CompaniesPayload {
-    companies: CompanyPayload[];
-}
+// export interface CompaniesPayload {
+//     companies: CompanyPayload[];
+// }
 
 export interface CompanyPayload {
-    id: number;
+    companyId: number;
     name: string;
     plan: number;
     taken: number;

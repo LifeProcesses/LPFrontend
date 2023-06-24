@@ -1,13 +1,13 @@
 import { useCallback, useMemo, useState } from 'react';
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { Contact } from './CompanyDetails.interface';
 
 import ContactCard from '../contact-card/ContactCard';
 
-// import { useGetCompanyDetailsQuery } from 'api/routes/companiesApi';
 import { CompanyContactPayload } from 'api/Models';
-import { COMPANY_DETAIL_MOCK } from 'helpers/mocks/Companies.mock';
+import { useGetCompanyDetailsQuery } from 'api/routes/companiesApi';
+// import { COMPANY_DETAIL_MOCK } from 'helpers/mocks/Companies.mock';
 
 import './CompanyDetails.scss';
 
@@ -32,22 +32,22 @@ const convertToContact = (arr: CompanyContactPayload[]) => {
 };
 
 const CompanyDetails: React.FC = () => {
-    // const { companyId } = useParams();
-    // const {
-    //     data: companyDetails,
-    //     isLoading: isDetailsLoading,
-    //     error: isDetailsError,
-    // } = useGetCompanyDetailsQuery(parseInt(companyId || ''));
-    const companyDetails = COMPANY_DETAIL_MOCK;
+    const { companyId } = useParams();
+    const {
+        data: companyDetails,
+        // isLoading: isDetailsLoading,
+        // error: isDetailsError,
+    } = useGetCompanyDetailsQuery(parseInt(companyId || ''));
+    // const companyDetails = COMPANY_DETAIL_MOCK;
 
     const [isContactCardOpen, setIsContactCardOpen] = useState<boolean>(false);
     const [currentContact, setCurrentContact] = useState<Contact | null>(null);
 
-    const contacts = useMemo(() => convertToContact(companyDetails.contacts), [companyDetails.contacts]);
+    const contacts = useMemo(() => convertToContact(companyDetails?.contacts || []), [companyDetails?.contacts]);
 
     const representatives = useMemo(
-        () => convertToContact(companyDetails.representatives),
-        [companyDetails.representatives],
+        () => convertToContact(companyDetails?.representatives || []),
+        [companyDetails?.representatives],
     );
 
     const handleClickContact = useCallback((contact: Contact) => {
