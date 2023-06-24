@@ -135,3 +135,26 @@ export interface CompanyPositionStudentPayload {
     status: StudentStatusType;
     lastActivity: Date;
 }
+
+export interface CreateCompanyModel {
+    name: string;
+    description: string;
+    image: string;
+    plan: number;
+    taken: number;
+    representatives: CompanyRepresentativesModel[];
+    contacts: CompanyContactModel[];
+}
+
+export interface CompanyContactModel {
+    name: string;
+    position: string;
+    contactType: string;
+    value: string;
+}
+
+export interface CompanyRepresentativesModel {
+    name: string;
+    position: string;
+    contacts: CompanyContactModel[];
+}

@@ -1,12 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 
-import { CompaniesPayload, CompanyDetailPayload, CompanyPositionsListPayload } from 'api/Models';
+import { CompaniesPayload, CompanyDetailPayload, CompanyPositionsListPayload, CreateCompanyModel } from 'api/Models';
 
 export const companiesApi = createApi({
     reducerPath: 'companiesApi',
     tagTypes: [''],
     baseQuery: fetchBaseQuery({
-        baseUrl: `companies/`,
+        baseUrl: `http://localhost:8080/companies`,
         prepareHeaders: (headers) => {
             // get token from LS
             const token = '';
@@ -28,20 +28,33 @@ export const companiesApi = createApi({
             }),
             getCompanyDetails: build.query<CompanyDetailPayload, number>({
                 query: (id) => ({
-                    url: `${id}`,
+                    url: `/${id}`,
                     method: 'GET',
                 }),
                 providesTags: [{ type: '' }],
             }),
             getCompanyPositions: build.query<CompanyPositionsListPayload, number>({
                 query: (id) => ({
-                    url: `${id}/positions`,
+                    url: `/${id}/positions`,
                     method: 'GET',
                 }),
                 providesTags: [{ type: '' }],
+            }),
+            createCompany: build.mutation<void, CreateCompanyModel>({
+                query: (company) => ({
+                    url: `/addCompany`,
+                    method: 'POST',
+                    body: company,
+                }),
+                invalidatesTags: [{ type: '' }],
             }),
         };
     },
 });
 
-export const { useGetCompaniesListQuery, useGetCompanyDetailsQuery, useGetCompanyPositionsQuery } = companiesApi;
+export const {
+    useGetCompaniesListQuery,
+    useGetCompanyDetailsQuery,
+    useGetCompanyPositionsQuery,
+    useCreateCompanyMutation,
+} = companiesApi;

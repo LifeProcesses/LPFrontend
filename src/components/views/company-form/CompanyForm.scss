@@ -1,0 +1,43 @@
+.company-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    &__positions {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        & > span:nth-child(3) {
+            margin-left: 15px;
+        }
+    }
+
+    &__contacts {
+        &--title {
+            margin-bottom: 20px;
+
+            button {
+                margin: 0 10px;
+            }
+        }
+
+        &--item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 15px;
+
+            margin-bottom: 20px;
+            padding: 20px;
+
+            border: 1px solid var(--neutral-00);
+            border-radius: 20px;
+        }
+    }
+
+    & > button {
+        width: fit-content;
+        margin-left: auto;
+    }
+}

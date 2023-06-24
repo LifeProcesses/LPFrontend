@@ -6,7 +6,6 @@ import { positionsApi } from 'api/routes/positionsApi';
 import { studentsApi } from 'api/routes/studentsApi';
 import { COMPANIES_MOCK } from 'helpers/mocks/Companies.mock';
 import { POSITIONS_MOCK } from 'helpers/mocks/Positions.mock';
-
 import { STUDENTS_MOCK } from 'helpers/mocks/Students.mock';
 
 interface StudentsState {
@@ -21,6 +20,10 @@ const initialState: StudentsState = {
     filteredStudents: STUDENTS_MOCK.students,
     companies: COMPANIES_MOCK.companies,
     positions: POSITIONS_MOCK.positions,
+    // students: [],
+    // filteredStudents: [],
+    // companies: [],
+    // positions: [],
 };
 
 export const studentsSlice = createSlice({

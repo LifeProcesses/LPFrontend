@@ -6,7 +6,7 @@ export const studentsApi = createApi({
     reducerPath: 'studentsApi',
     tagTypes: [''],
     baseQuery: fetchBaseQuery({
-        baseUrl: ``,
+        baseUrl: `http://localhost:8080/`,
         prepareHeaders: (headers) => {
             // get token from LS
             const token = '';

@@ -4,21 +4,21 @@ import { useMemo, useState } from 'react';
 import PositionItem from './position-item/PositionItem';
 
 import { useGetPositionsListQuery } from 'api/routes/positionsApi';
-import { POSITIONS_MOCK } from 'helpers/mocks/Positions.mock';
+// import { POSITIONS_MOCK } from 'helpers/mocks/Positions.mock';
 
 import './PositionsList.scss';
 
 const PositionsList: React.FC = () => {
-    const { isLoading: isPositionsLoading } = useGetPositionsListQuery();
-    const positionsList = POSITIONS_MOCK;
+    const { data: positionsList, isLoading: isPositionsLoading } = useGetPositionsListQuery();
+    // const positionsList = POSITIONS_MOCK;
 
     const [filterValue, setFilterValue] = useState<string>('');
 
     const filteredPositions = useMemo(() => {
-        return positionsList.positions.filter((position) =>
+        return positionsList?.positions.filter((position) =>
             position.name.toLocaleLowerCase().includes(filterValue.toLocaleLowerCase()),
         );
-    }, [filterValue, positionsList.positions]);
+    }, [filterValue, positionsList?.positions]);
 
     return (
         <div className='positions-list'>
@@ -29,9 +29,9 @@ const PositionsList: React.FC = () => {
                 className='positions-list__search'
             />
             <div className='positions-list__info'>
-                <span>Найдено позиций: {filteredPositions.length}</span>
+                <span>Найдено позиций: {filteredPositions?.length || 0}</span>
                 <span>
-                    план {positionsList.plan} | взяли {positionsList.taken}
+                    план {positionsList?.plan} | взяли {positionsList?.taken}
                 </span>
             </div>
             <List

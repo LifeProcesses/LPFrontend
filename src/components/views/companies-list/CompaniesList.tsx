@@ -10,16 +10,17 @@ import './CompaniesList.scss';
 const CompaniesList: React.FC = () => {
     const navigate = useNavigate();
 
+    // const { data: companiesList, isLoading: isCompaniesLoading } = useGetCompaniesListQuery();
     const { isLoading: isCompaniesLoading } = useGetCompaniesListQuery();
     const companiesList = COMPANIES_MOCK;
 
     const [filterValue, setFilterValue] = useState<string>('');
 
     const filteredCompanies = useMemo(() => {
-        return companiesList.companies.filter((company) =>
+        return companiesList?.companies.filter((company) =>
             company.name.toLocaleLowerCase().includes(filterValue.toLocaleLowerCase()),
         );
-    }, [companiesList.companies, filterValue]);
+    }, [companiesList?.companies, filterValue]);
 
     return (
         <div className='companies-list'>
@@ -29,7 +30,7 @@ const CompaniesList: React.FC = () => {
                 placeholder='Поиск'
                 className='companies-list__search'
             />
-            <span className='companies-list__info'>Найдено комапний: {filteredCompanies.length}</span>
+            <span className='companies-list__info'>Найдено компаний: {filteredCompanies?.length || 0}</span>
             <List
                 loading={isCompaniesLoading}
                 dataSource={filteredCompanies}
