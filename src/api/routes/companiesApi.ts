@@ -46,9 +46,9 @@ export const companiesApi = createApi({
             }),
             addCompanyPosition: build.mutation<void, AddCompanyPositionModel>({
                 query: (body) => ({
-                    url: ``,
+                    url: `/${body.companyId}/positions`,
                     method: 'POST',
-                    body,
+                    body: body.position,
                 }),
                 invalidatesTags: [{ type: 'companyPositions' }],
             }),

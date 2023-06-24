@@ -1,28 +1,28 @@
 import { List, Tag } from 'antd';
 import { useCallback, useState } from 'react';
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import AddPositionForm from './add-position-form/AddPositionForm';
 
 import PositionCard from '../position-card/PositionCard';
 import StudentCard from '../student-card/StudentCard';
 
-// import { useGetCompanyPositionsQuery } from 'api/routes/companiesApi';
 import { CompanyPositionPayload, StudentInfoPayload } from 'api/Models';
+import { useGetCompanyPositionsQuery } from 'api/routes/companiesApi';
 import { useLazyGetStudentInfoQuery } from 'api/routes/studentsApi';
-import { COMPANY_POSITIONS_MOCK } from 'helpers/mocks/Companies.mock';
+// import { COMPANY_POSITIONS_MOCK } from 'helpers/mocks/Companies.mock';
 import { STUDENT_INFO_MOCK } from 'helpers/mocks/Students.mock';
 
 import './CompanyPositions.scss';
 
 const CompanyPositions: React.FC = () => {
-    // const { companyId } = useParams();
-    // const {
-    //     data: positions,
-    //     isLoading: isPositionsLoading,
-    //     error: isPositionsError,
-    // } = useGetCompanyPositionsQuery(parseInt(companyId || ''));
-    const positions = COMPANY_POSITIONS_MOCK;
+    const { companyId } = useParams();
+    const {
+        data: positions,
+        isLoading: isPositionsLoading,
+        // error: isPositionsError,
+    } = useGetCompanyPositionsQuery(parseInt(companyId || ''));
+    // const positions = COMPANY_POSITIONS_MOCK;
 
     const [getStudent, { isFetching: isStudentFetching, isLoading: isStudentLoading }] = useLazyGetStudentInfoQuery();
 
@@ -57,10 +57,13 @@ const CompanyPositions: React.FC = () => {
                             <Tag className={`lp-tag lp-tag_yellow`}>
                                 план {positions.plan} | взяли {positions.taken}
                             </Tag>
-                            <AddPositionForm companyPositions={positions.positions} />
+                            <AddPositionForm
+                                companyId={parseInt(companyId || '')}
+                                companyPositions={positions.positions}
+                            />
                         </div>
                         <List
-                            // loading={isPositionsLoading}
+                            loading={isPositionsLoading}
                             dataSource={positions.positions}
                             renderItem={(item) => (
                                 <List.Item>

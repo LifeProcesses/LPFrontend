@@ -9,7 +9,10 @@ import useOutsideClick from 'hooks/useOutsideClick';
 
 import './AddPositionForm.scss';
 
-const AddPositionForm: React.FC<{ companyPositions?: CompanyPositionPayload[] }> = ({ companyPositions }) => {
+const AddPositionForm: React.FC<{ companyPositions?: CompanyPositionPayload[]; companyId: number }> = ({
+    companyPositions,
+    companyId,
+}) => {
     const { data: positions } = useGetPositionsListQuery();
     const [addPosition, { isLoading }] = useAddCompanyPositionMutation();
 
@@ -43,8 +46,11 @@ const AddPositionForm: React.FC<{ companyPositions?: CompanyPositionPayload[] }>
             return;
         }
         await addPosition({
-            postionTypeId: newPosition.toString(),
-            plan: newPositionPlan,
+            companyId: 1,
+            position: {
+                postionTypeId: newPosition.toString(),
+                plan: newPositionPlan,
+            },
         })
             .unwrap()
             .then(() => setIsNewInterviewVisible(false));

@@ -129,8 +129,11 @@ export interface CompanyPositionPayload {
 }
 
 export interface AddCompanyPositionModel {
-    postionTypeId: string;
-    plan: number;
+    companyId: number;
+    position: {
+        postionTypeId: string;
+        plan: number;
+    };
 }
 
 export interface CompanyPositionStudentPayload {
