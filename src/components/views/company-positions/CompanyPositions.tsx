@@ -30,20 +30,19 @@ const CompanyPositions: React.FC = () => {
     const [currentPosition, setCurrentPosition] = useState<CompanyPositionPayload | null>(null);
 
     const [isStudentCardOpen, setIsStudentCardOpen] = useState<boolean>(false);
-    const [currentStudent] = useState<StudentInfoPayload | null>(STUDENT_INFO_MOCK);
+    const [currentStudent, setCurrentStudent] = useState<StudentInfoPayload | null>(STUDENT_INFO_MOCK);
 
     const handleOpenStudent = useCallback(
         async (id: number) => {
             setIsStudentCardOpen(true);
-            // if (id !== currentStudent?.id) {
-            // await getStudent(id)
-            //     .unwrap()
-            //     .then((data) => {
-            //         setCurrentStudent(data);
-            //     });
-            // }
+            if (id !== currentStudent?.id) {
+                await getStudent(id)
+                    .unwrap()
+                    .then((data) => {
+                        setCurrentStudent(data);
+                    });
+            }
         },
-        // eslint-disable-next-line react-hooks/exhaustive-deps
         [currentStudent?.id, getStudent],
     );
 

@@ -96,16 +96,27 @@ export interface ChangeInterviewStatusModel {
 }
 
 export interface CompanyDetailPayload {
-    id: number;
+    companyId: number;
     name: string;
     description: string;
     image: string;
-    representatives: CompanyContactPayload[];
-    contacts: CompanyContactPayload[];
+    representativesDto: CompanyRepresentativePayload[];
+    contactsFullDto: CompanyContactPayload[];
+}
+
+export interface CompanyRepresentativePayload {
+    representativeId: number;
+    name: string;
+    position: string;
+    image: string;
+    contactsShortDto: {
+        contactType: string;
+        value: string;
+    }[];
 }
 
 export interface CompanyContactPayload {
-    id: number;
+    contactId: number;
     name: string;
     position: string;
     image: string;
@@ -148,8 +159,6 @@ export interface CreateCompanyModel {
     name: string;
     description: string;
     image: string;
-    plan: number;
-    taken: number;
     representatives: CompanyRepresentativesModel[];
     contacts: CompanyContactModel[];
 }
@@ -164,5 +173,8 @@ export interface CompanyContactModel {
 export interface CompanyRepresentativesModel {
     name: string;
     position: string;
-    contacts: CompanyContactModel[];
+    contacts: {
+        contactType: string;
+        value: string;
+    }[];
 }

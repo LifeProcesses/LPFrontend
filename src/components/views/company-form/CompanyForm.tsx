@@ -1,4 +1,4 @@
-import { Button, Input, InputNumber } from 'antd';
+import { Button, Input } from 'antd';
 import { useCallback, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -17,9 +17,8 @@ const CompanyForm: React.FC = () => {
     const [createCompany, { isLoading }] = useCreateCompanyMutation();
 
     const [companyName, setCompanyName] = useState<string>('');
+    const [companyImage, setCompanyImage] = useState<string>('');
     const [companyDescription, setCompanyDescription] = useState<string>('');
-    const [planCount, setPlanCount] = useState<number>(0);
-    const [takenCount, setTakenCount] = useState<number>(0);
     const [contacts, setContacts] = useState<CompanyContactModel[]>([]);
 
     const handleChangeContact = useCallback(
@@ -56,14 +55,12 @@ const CompanyForm: React.FC = () => {
             name: companyName,
             description: companyDescription,
             image: '',
-            plan: planCount,
-            taken: takenCount,
             representatives: [],
             contacts,
         })
             .unwrap()
             .then(() => navigate(-1));
-    }, [companyDescription, companyName, contacts, createCompany, navigate, planCount, takenCount]);
+    }, [companyDescription, companyName, contacts, createCompany, navigate]);
 
     const contactsList = useMemo(
         () => (
@@ -92,18 +89,17 @@ const CompanyForm: React.FC = () => {
                 onChange={(e) => setCompanyName(e.target.value)}
                 placeholder='Название комапнии'
             />
+            <Input
+                value={companyImage}
+                onChange={(e) => setCompanyImage(e.target.value)}
+                placeholder='Логотип (ссылка)'
+            />
             <TextArea
                 value={companyDescription}
                 onChange={(e) => setCompanyDescription(e.target.value)}
                 rows={4}
                 placeholder='Описание комапнии'
             />
-            <div className='company-form__positions'>
-                <span>План</span>
-                <InputNumber min={0} value={planCount} onChange={(val) => setPlanCount(val || 0)} />
-                <span>Взяли</span>
-                <InputNumber min={0} value={takenCount} onChange={(val) => setTakenCount(val || 0)} />
-            </div>
             <div>
                 <p>Представители</p>
             </div>

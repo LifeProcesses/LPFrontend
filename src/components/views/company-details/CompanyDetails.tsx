@@ -6,11 +6,20 @@ import { Contact } from './CompanyDetails.interface';
 
 import ContactCard from '../contact-card/ContactCard';
 
-import { CompanyContactPayload } from 'api/Models';
+import { CompanyContactPayload, CompanyRepresentativePayload } from 'api/Models';
 import { useGetCompanyDetailsQuery } from 'api/routes/companiesApi';
 // import { COMPANY_DETAIL_MOCK } from 'helpers/mocks/Companies.mock';
 
 import './CompanyDetails.scss';
+
+const convertRepresentativesToContact = (arr: CompanyRepresentativePayload[]) => {
+    return arr.map((repres) => ({
+        name: repres.name,
+        position: repres.position,
+        image: repres.image,
+        contacts: repres.contactsShortDto,
+    }));
+};
 
 const convertToContact = (arr: CompanyContactPayload[]) => {
     return arr.reduce((acc: Contact[], item: CompanyContactPayload) => {
@@ -20,13 +29,10 @@ const convertToContact = (arr: CompanyContactPayload[]) => {
                 name: item.name,
                 position: item.position,
                 image: item.image,
-                contacts: [{ id: item.id, contactType: item.contactType, value: item.value }],
+                contacts: [{ contactType: item.contactType, value: item.value }],
             });
         } else {
-            acc[index].contacts = [
-                ...acc[index].contacts,
-                { id: item.id, contactType: item.contactType, value: item.value },
-            ];
+            acc[index].contacts = [...acc[index].contacts, { contactType: item.contactType, value: item.value }];
         }
         return acc;
     }, []);
@@ -44,11 +50,14 @@ const CompanyDetails: React.FC = () => {
     const [isContactCardOpen, setIsContactCardOpen] = useState<boolean>(false);
     const [currentContact, setCurrentContact] = useState<Contact | null>(null);
 
-    const contacts = useMemo(() => convertToContact(companyDetails?.contacts || []), [companyDetails?.contacts]);
+    const contacts = useMemo(
+        () => convertToContact(companyDetails?.contactsFullDto || []),
+        [companyDetails?.contactsFullDto],
+    );
 
     const representatives = useMemo(
-        () => convertToContact(companyDetails?.representatives || []),
-        [companyDetails?.representatives],
+        () => convertRepresentativesToContact(companyDetails?.representativesDto || []),
+        [companyDetails?.representativesDto],
     );
 
     const handleClickContact = useCallback((contact: Contact) => {

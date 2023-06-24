@@ -3,7 +3,6 @@ export interface Contact {
     position: string;
     image: string;
     contacts: {
-        id: number;
         contactType: string;
         value: string;
     }[];

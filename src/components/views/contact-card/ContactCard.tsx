@@ -31,8 +31,8 @@ const ContactCard: React.FC<ContactCardProps> = ({ contact, isOpen, onClose }) =
                     </div>
                     <div className='contact-card__contacts'>
                         <p>Контакты</p>
-                        {contact.contacts.map((cont) => (
-                            <p>{`${cont.contactType}: ${cont.value}`}</p>
+                        {contact.contacts.map((cont, i) => (
+                            <p key={i}>{`${cont.contactType}: ${cont.value}`}</p>
                         ))}
                     </div>
                 </div>

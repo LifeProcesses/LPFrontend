@@ -29,32 +29,32 @@ export const COMPANIES_MOCK: CompanyPayload[] = [
 ];
 
 export const COMPANY_DETAIL_MOCK: CompanyDetailPayload = {
-    id: 1,
+    companyId: 1,
     name: 'NTR',
     description:
         'Компания НТР - разработчик информационных систем и программных продуктов. С 2000 года занимаемся разработкой и внедрением наукоемких технологических решений на основе машинного обучения и технологий искусственного интеллекта. Наша основная технологическая экспертиза - это системы на нейронных сетях, транспортные системы, высоконагруженные системы. Нашими клиентами в разное время были и есть ЕВРАЗ, Caltech, Skype, Intel, МегаФон, Mail.ru, Банк России, СИБУР, Газпромнефть. Работаем на русском и европейском/американском рынке.',
     image: 'https://www.meme-arsenal.com/memes/ec12b2d95f12a919311035ddfd7c03e2.jpg',
-    representatives: [
+    representativesDto: [
         {
-            id: 1,
+            representativeId: 1,
             name: 'Данила Соколов',
             position: 'Преподаватель HITs',
             image: '',
-            contactType: 'Email',
-            value: 'email@mail.com',
-        },
-        {
-            id: 2,
-            name: 'Данила Соколов',
-            position: 'Преподаватель HITs',
-            image: '',
-            contactType: 'Телефон',
-            value: '80000000000',
+            contactsShortDto: [
+                {
+                    contactType: 'Email',
+                    value: 'email@mail.com',
+                },
+                {
+                    contactType: 'Телефон',
+                    value: '80000000000',
+                },
+            ],
         },
     ],
-    contacts: [
+    contactsFullDto: [
         {
-            id: 2,
+            contactId: 2,
             name: 'Иващенко Екатерина',
             position: 'HR',
             image: '',

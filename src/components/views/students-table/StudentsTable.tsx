@@ -22,7 +22,7 @@ const StudentsTable: React.FC<{ isLoading: boolean }> = ({ isLoading }) => {
     const [getStudent, { isFetching: isStudentFetching, isLoading: isStudentLoading }] = useLazyGetStudentInfoQuery();
 
     const [isCardOpen, setIsCardOpen] = useState<boolean>(false);
-    const [currentStudent] = useState<StudentInfoPayload | null>(STUDENT_INFO_MOCK);
+    const [currentStudent, setCurrentStudent] = useState<StudentInfoPayload | null>(STUDENT_INFO_MOCK);
 
     const columns: ColumnsType<StudentPayload> = [
         {
@@ -87,15 +87,14 @@ const StudentsTable: React.FC<{ isLoading: boolean }> = ({ isLoading }) => {
     const handleOpenStudent = useCallback(
         async (id: number) => {
             setIsCardOpen(true);
-            // if (id !== currentStudent?.id) {
-            // await getStudent(id)
-            //     .unwrap()
-            //     .then((data) => {
-            //         setCurrentStudent(data);
-            //     });
-            // }
+            if (id !== currentStudent?.id) {
+                await getStudent(id)
+                    .unwrap()
+                    .then((data) => {
+                        setCurrentStudent(data);
+                    });
+            }
         },
-        // eslint-disable-next-line react-hooks/exhaustive-deps
         [currentStudent?.id, getStudent],
     );
 

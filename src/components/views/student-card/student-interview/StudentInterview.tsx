@@ -22,18 +22,16 @@ const StudentInterview: React.FC<{ interview: InterviewPayload }> = ({ interview
 
     const handleChangeStatus = useCallback(
         (status: string) => {
-            console.log(status);
-            // changeStatus({
-            //     id: company.id,
-            //     interviewId: interview.id,
-            //     status,
-            // })
-            //     .unwrap()
-            //     .catch((e) => {
-            //         console.log('smth went wrong');
-            //     });
+            changeStatus({
+                companyId: company.id,
+                interviewId: interview.id,
+                status,
+            })
+                .unwrap()
+                .catch((e) => {
+                    console.log('smth went wrong');
+                });
         },
-        // eslint-disable-next-line react-hooks/exhaustive-deps
         [changeStatus, company.id, interview.id],
     );
 
@@ -58,19 +56,17 @@ const StudentInterview: React.FC<{ interview: InterviewPayload }> = ({ interview
 
     const handleAddComment = useCallback(
         (text: string) => {
-            console.log(text);
-            // sendComment({
-            //     id: company.id,
-            //     interviewId: interview.id,
-            //     text
-            // })
-            //     .unwrap()
-            //     .catch((e) => {
-            //         console.log('smth went wrong');
-            //     });
+            sendComment({
+                companyId: company.id,
+                interviewId: interview.id,
+                text,
+            })
+                .unwrap()
+                .catch((e) => {
+                    console.log('smth went wrong');
+                });
             setComment('');
         },
-        // eslint-disable-next-line react-hooks/exhaustive-deps
         [company.id, interview.id, sendComment],
     );
 
