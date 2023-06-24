@@ -84,8 +84,8 @@ export const COMPANY_POSITIONS_MOCK: CompanyPositionsListPayload = {
                 },
                 {
                     id: 4,
-                    name: 'Иванов Саша',
-                    image: 'https://static.tildacdn.com/tild3431-3062-4262-a138-333662326332/png-clipart-teacher-.png',
+                    name: 'Воронова Маша',
+                    image: 'https://img2.freepng.ru/20180504/phe/kisspng-professional-computer-icons-avatar-job-5aec571ec854c8.3222584415254382388206.jpg',
                     status: StudentStatusType.Interview,
                     lastActivity: new Date(),
                 },
