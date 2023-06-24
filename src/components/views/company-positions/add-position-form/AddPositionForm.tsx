@@ -5,6 +5,7 @@ import { CompanyPositionPayload } from 'api/Models';
 import { useAddCompanyPositionMutation } from 'api/routes/companiesApi';
 import { useGetPositionsListQuery } from 'api/routes/positionsApi';
 
+import { POSITIONS_MOCK } from 'helpers/mocks/Positions.mock';
 import useOutsideClick from 'hooks/useOutsideClick';
 
 import './AddPositionForm.scss';
@@ -13,7 +14,8 @@ const AddPositionForm: React.FC<{ companyPositions?: CompanyPositionPayload[]; c
     companyPositions,
     companyId,
 }) => {
-    const { data: positions } = useGetPositionsListQuery();
+    // const { data: positions } = useGetPositionsListQuery();
+    const positions = POSITIONS_MOCK;
     const [addPosition, { isLoading }] = useAddCompanyPositionMutation();
 
     const formRef = useRef<HTMLDivElement>(null);

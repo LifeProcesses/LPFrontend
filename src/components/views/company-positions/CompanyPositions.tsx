@@ -10,19 +10,19 @@ import StudentCard from '../student-card/StudentCard';
 import { CompanyPositionPayload, StudentInfoPayload } from 'api/Models';
 import { useGetCompanyPositionsQuery } from 'api/routes/companiesApi';
 import { useLazyGetStudentInfoQuery } from 'api/routes/studentsApi';
-// import { COMPANY_POSITIONS_MOCK } from 'helpers/mocks/Companies.mock';
+import { COMPANY_POSITIONS_MOCK } from 'helpers/mocks/Companies.mock';
 import { STUDENT_INFO_MOCK } from 'helpers/mocks/Students.mock';
 
 import './CompanyPositions.scss';
 
 const CompanyPositions: React.FC = () => {
     const { companyId } = useParams();
-    const {
-        data: positions,
-        isLoading: isPositionsLoading,
-        // error: isPositionsError,
-    } = useGetCompanyPositionsQuery(parseInt(companyId || ''));
-    // const positions = COMPANY_POSITIONS_MOCK;
+    // const {
+    //     data: positions,
+    //     isLoading: isPositionsLoading,
+    //     // error: isPositionsError,
+    // } = useGetCompanyPositionsQuery(parseInt(companyId || ''));
+    const positions = COMPANY_POSITIONS_MOCK;
 
     const [getStudent, { isFetching: isStudentFetching, isLoading: isStudentLoading }] = useLazyGetStudentInfoQuery();
 
@@ -62,7 +62,7 @@ const CompanyPositions: React.FC = () => {
                             />
                         </div>
                         <List
-                            loading={isPositionsLoading}
+                            // loading={isPositionsLoading}
                             dataSource={positions.positions}
                             renderItem={(item) => (
                                 <List.Item>

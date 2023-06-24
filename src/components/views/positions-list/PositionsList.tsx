@@ -4,13 +4,13 @@ import { useMemo, useState } from 'react';
 import PositionItem from './position-item/PositionItem';
 
 import { useGetPositionsListQuery } from 'api/routes/positionsApi';
-// import { POSITIONS_MOCK } from 'helpers/mocks/Positions.mock';
+import { POSITIONS_MOCK } from 'helpers/mocks/Positions.mock';
 
 import './PositionsList.scss';
 
 const PositionsList: React.FC = () => {
-    const { data: positionsList, isLoading: isPositionsLoading } = useGetPositionsListQuery();
-    // const positionsList = POSITIONS_MOCK;
+    // const { data: positionsList, isLoading: isPositionsLoading } = useGetPositionsListQuery();
+    const positionsList = POSITIONS_MOCK;
 
     const [filterValue, setFilterValue] = useState<string>('');
 
@@ -36,7 +36,7 @@ const PositionsList: React.FC = () => {
             </div>
             <List
                 dataSource={filteredPositions}
-                loading={isPositionsLoading}
+                // loading={isPositionsLoading}
                 renderItem={(item) => (
                     <List.Item>
                         <PositionItem position={item} />

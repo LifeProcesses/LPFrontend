@@ -3,16 +3,16 @@ import React, { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useGetCompaniesListQuery } from 'api/routes/companiesApi';
-// import { COMPANIES_MOCK } from 'helpers/mocks/Companies.mock';
+import { COMPANIES_MOCK } from 'helpers/mocks/Companies.mock';
 
 import './CompaniesList.scss';
 
 const CompaniesList: React.FC = () => {
     const navigate = useNavigate();
 
-    const { data: companiesList, isLoading: isCompaniesLoading } = useGetCompaniesListQuery();
+    // const { data: companiesList, isLoading: isCompaniesLoading } = useGetCompaniesListQuery();
     // const { isLoading: isCompaniesLoading } = useGetCompaniesListQuery();
-    // const companiesList = COMPANIES_MOCK;
+    const companiesList = COMPANIES_MOCK;
 
     const [filterValue, setFilterValue] = useState<string>('');
 
@@ -32,7 +32,7 @@ const CompaniesList: React.FC = () => {
             />
             <span className='companies-list__info'>Найдено компаний: {filteredCompanies?.length || 0}</span>
             <List
-                loading={isCompaniesLoading}
+                // loading={isCompaniesLoading}
                 dataSource={filteredCompanies}
                 renderItem={(item) => (
                     <List.Item>

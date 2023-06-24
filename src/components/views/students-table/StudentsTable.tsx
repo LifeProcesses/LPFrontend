@@ -87,13 +87,13 @@ const StudentsTable: React.FC<{ isLoading: boolean }> = ({ isLoading }) => {
     const handleOpenStudent = useCallback(
         async (id: number) => {
             setIsCardOpen(true);
-            if (id !== currentStudent?.id) {
-                await getStudent(id)
-                    .unwrap()
-                    .then((data) => {
-                        setCurrentStudent(data);
-                    });
-            }
+            // if (id !== currentStudent?.id) {
+            //     await getStudent(id)
+            //         .unwrap()
+            //         .then((data) => {
+            //             setCurrentStudent(data);
+            //         });
+            // }
         },
         [currentStudent?.id, getStudent],
     );
@@ -104,7 +104,7 @@ const StudentsTable: React.FC<{ isLoading: boolean }> = ({ isLoading }) => {
             <Table
                 columns={columns}
                 dataSource={students}
-                loading={isLoading}
+                // loading={isLoading}
                 pagination={{ hideOnSinglePage: true }}
                 onRow={(record) => ({
                     onClick: () => handleOpenStudent(record.id),

@@ -8,7 +8,7 @@ import ContactCard from '../contact-card/ContactCard';
 
 import { CompanyContactPayload, CompanyRepresentativePayload } from 'api/Models';
 import { useGetCompanyDetailsQuery } from 'api/routes/companiesApi';
-// import { COMPANY_DETAIL_MOCK } from 'helpers/mocks/Companies.mock';
+import { COMPANY_DETAIL_MOCK } from 'helpers/mocks/Companies.mock';
 
 import './CompanyDetails.scss';
 
@@ -40,12 +40,12 @@ const convertToContact = (arr: CompanyContactPayload[]) => {
 
 const CompanyDetails: React.FC = () => {
     const { companyId } = useParams();
-    const {
-        data: companyDetails,
-        // isLoading: isDetailsLoading,
-        // error: isDetailsError,
-    } = useGetCompanyDetailsQuery(parseInt(companyId || ''));
-    // const companyDetails = COMPANY_DETAIL_MOCK;
+    // const {
+    //     data: companyDetails,
+    //     // isLoading: isDetailsLoading,
+    //     // error: isDetailsError,
+    // } = useGetCompanyDetailsQuery(parseInt(companyId || ''));
+    const companyDetails = COMPANY_DETAIL_MOCK;
 
     const [isContactCardOpen, setIsContactCardOpen] = useState<boolean>(false);
     const [currentContact, setCurrentContact] = useState<Contact | null>(null);
