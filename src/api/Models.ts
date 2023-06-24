@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 import { InterviewStatusType, StudentStatusType } from 'helpers/types';
 
-export interface StudentsPayload {
-    students: StudentPayload[];
-}
+// export interface StudentsPayload {
+//     students: StudentPayload[];
+// }
 
 export interface StudentPayload {
     id: number;
@@ -58,12 +58,12 @@ export interface CommentPayload {
     text: string;
 }
 
-export interface CompaniesPayload {
-    companies: CompanyPayload[];
-}
+// export interface CompaniesPayload {
+//     companies: CompanyPayload[];
+// }
 
 export interface CompanyPayload {
-    id: number;
+    companyId: number;
     name: string;
     plan: number;
     taken: number;
@@ -96,16 +96,27 @@ export interface ChangeInterviewStatusModel {
 }
 
 export interface CompanyDetailPayload {
-    id: number;
+    companyId: number;
     name: string;
     description: string;
     image: string;
-    representatives: CompanyContactPayload[];
-    contacts: CompanyContactPayload[];
+    representativesDto: CompanyRepresentativePayload[];
+    contactsFullDto: CompanyContactPayload[];
+}
+
+export interface CompanyRepresentativePayload {
+    representativeId: number;
+    name: string;
+    position: string;
+    image: string;
+    contactsShortDto: {
+        contactType: string;
+        value: string;
+    }[];
 }
 
 export interface CompanyContactPayload {
-    id: number;
+    contactId: number;
     name: string;
     position: string;
     image: string;
@@ -128,10 +139,42 @@ export interface CompanyPositionPayload {
     students: CompanyPositionStudentPayload[];
 }
 
+export interface AddCompanyPositionModel {
+    companyId: number;
+    position: {
+        postionTypeId: string;
+        plan: number;
+    };
+}
+
 export interface CompanyPositionStudentPayload {
     id: number;
     name: string;
     image: string;
     status: StudentStatusType;
     lastActivity: Date;
+}
+
+export interface CreateCompanyModel {
+    name: string;
+    description: string;
+    image: string;
+    representatives: CompanyRepresentativesModel[];
+    contacts: CompanyContactModel[];
+}
+
+export interface CompanyContactModel {
+    name: string;
+    position: string;
+    contactType: string;
+    value: string;
+}
+
+export interface CompanyRepresentativesModel {
+    name: string;
+    position: string;
+    contacts: {
+        contactType: string;
+        value: string;
+    }[];
 }

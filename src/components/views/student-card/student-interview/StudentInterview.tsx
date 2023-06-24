@@ -22,18 +22,16 @@ const StudentInterview: React.FC<{ interview: InterviewPayload }> = ({ interview
 
     const handleChangeStatus = useCallback(
         (status: string) => {
-            console.log(status);
-            // changeStatus({
-            //     companyId: company.id,
-            //     interviewId: interview.id,
-            //     status,
-            // })
-            //     .unwrap()
-            //     .catch((e) => {
-            //         console.log('smth went wrong');
-            //     });
+            changeStatus({
+                companyId: company.id,
+                interviewId: interview.id,
+                status,
+            })
+                .unwrap()
+                .catch((e) => {
+                    console.log('smth went wrong');
+                });
         },
-        // eslint-disable-next-line react-hooks/exhaustive-deps
         [changeStatus, company.id, interview.id],
     );
 
@@ -58,19 +56,17 @@ const StudentInterview: React.FC<{ interview: InterviewPayload }> = ({ interview
 
     const handleAddComment = useCallback(
         (text: string) => {
-            console.log(text);
-            // sendComment({
-            //     companyId: company.id,
-            //     interviewId: interview.id,
-            //     text
-            // })
-            //     .unwrap()
-            //     .catch((e) => {
-            //         console.log('smth went wrong');
-            //     });
+            sendComment({
+                companyId: company.id,
+                interviewId: interview.id,
+                text,
+            })
+                .unwrap()
+                .catch((e) => {
+                    console.log('smth went wrong');
+                });
             setComment('');
         },
-        // eslint-disable-next-line react-hooks/exhaustive-deps
         [company.id, interview.id, sendComment],
     );
 
@@ -103,7 +99,10 @@ const StudentInterview: React.FC<{ interview: InterviewPayload }> = ({ interview
                 {visibleComments.map((comment, i) => (
                     <div className='comment' key={i}>
                         <div className='comment_info'>
-                            <Avatar src={comment.author.image} size={40} />
+                            <Avatar
+                                src={comment.author.image && <img src={comment.author.image} alt='avatar' />}
+                                size={40}
+                            />
                             <span className='comment_info_name'>{comment.author.name}</span>
                             <div style={{ flexGrow: 1 }}></div>
                             <span className='comment_info_date'>

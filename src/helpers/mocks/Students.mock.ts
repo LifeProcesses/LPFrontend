@@ -1,141 +1,139 @@
-import { StudentInfoPayload, StudentsPayload } from 'api/Models';
+import { StudentInfoPayload, StudentPayload } from 'api/Models';
 import { InterviewStatusType, StudentStatusType } from 'helpers/types';
 
-export const STUDENTS_MOCK: StudentsPayload = {
-    students: [
-        {
-            id: 132,
-            name: 'Дорохин Владислав',
-            image: '',
-            status: {
-                type: StudentStatusType.Accepted,
-                number: 0,
-            },
-            interviewsCount: 12,
-            companies: [
-                {
-                    id: 1,
-                    name: 'NTR',
-                },
-                {
-                    id: 2,
-                    name: 'Kreosoft',
-                },
-                {
-                    id: 4,
-                    name: 'Тинькофф',
-                },
-            ],
-            positions: [
-                {
-                    id: 1,
-                    name: 'Frontend React',
-                },
-                {
-                    id: 2,
-                    name: 'Frontend Vue',
-                },
-                {
-                    id: 4,
-                    name: 'Backend PHP',
-                },
-            ],
-            lastActivity: new Date(),
+export const STUDENTS_MOCK: StudentPayload[] = [
+    {
+        id: 132,
+        name: 'Дорохин Владислав',
+        image: '',
+        status: {
+            type: StudentStatusType.Accepted,
+            number: 0,
         },
-        {
-            id: 4,
-            name: 'Дорохин Владислав',
-            image: '',
-            status: {
-                type: StudentStatusType.Issued,
-                number: 4,
+        interviewsCount: 12,
+        companies: [
+            {
+                id: 1,
+                name: 'NTR',
             },
-            interviewsCount: 12,
-            companies: [
-                {
-                    id: 1,
-                    name: 'NTR',
-                },
-            ],
-            positions: [
-                {
-                    id: 3,
-                    name: 'Backend Java',
-                },
-            ],
-            lastActivity: new Date(),
-        },
-        {
-            id: 11,
-            name: 'Дорохин Владислав',
-            image: '',
-            status: {
-                type: StudentStatusType.Interview,
-                number: 0,
+            {
+                id: 2,
+                name: 'Kreosoft',
             },
-            interviewsCount: 12,
-            companies: [
-                {
-                    id: 1,
-                    name: 'NTR',
-                },
-            ],
-            positions: [
-                {
-                    id: 3,
-                    name: 'Backend Java',
-                },
-            ],
-            lastActivity: new Date(),
-        },
-        {
-            id: 333,
-            name: 'Дорохин Владислав',
-            image: '',
-            status: {
-                type: StudentStatusType.Empty,
-                number: 0,
+            {
+                id: 4,
+                name: 'Тинькофф',
             },
-            interviewsCount: 12,
-            companies: [
-                {
-                    id: 1,
-                    name: 'NTR',
-                },
-            ],
-            positions: [
-                {
-                    id: 3,
-                    name: 'Backend Java',
-                },
-            ],
-            lastActivity: new Date(),
-        },
-        {
-            id: 243,
-            name: 'Дорохин Владислав',
-            image: '',
-            status: {
-                type: StudentStatusType.Refused,
-                number: 0,
+        ],
+        positions: [
+            {
+                id: 1,
+                name: 'Frontend React',
             },
-            interviewsCount: 0,
-            companies: [
-                {
-                    id: 1,
-                    name: 'NTR',
-                },
-            ],
-            positions: [
-                {
-                    id: 3,
-                    name: 'Backend Java',
-                },
-            ],
-            lastActivity: new Date(),
+            {
+                id: 2,
+                name: 'Frontend Vue',
+            },
+            {
+                id: 4,
+                name: 'Backend PHP',
+            },
+        ],
+        lastActivity: new Date(),
+    },
+    {
+        id: 4,
+        name: 'Дорохин Владислав',
+        image: '',
+        status: {
+            type: StudentStatusType.Issued,
+            number: 4,
         },
-    ],
-};
+        interviewsCount: 12,
+        companies: [
+            {
+                id: 1,
+                name: 'NTR',
+            },
+        ],
+        positions: [
+            {
+                id: 3,
+                name: 'Backend Java',
+            },
+        ],
+        lastActivity: new Date(),
+    },
+    {
+        id: 11,
+        name: 'Дорохин Владислав',
+        image: '',
+        status: {
+            type: StudentStatusType.Interview,
+            number: 0,
+        },
+        interviewsCount: 12,
+        companies: [
+            {
+                id: 1,
+                name: 'NTR',
+            },
+        ],
+        positions: [
+            {
+                id: 3,
+                name: 'Backend Java',
+            },
+        ],
+        lastActivity: new Date(),
+    },
+    {
+        id: 333,
+        name: 'Дорохин Владислав',
+        image: '',
+        status: {
+            type: StudentStatusType.Empty,
+            number: 0,
+        },
+        interviewsCount: 12,
+        companies: [
+            {
+                id: 1,
+                name: 'NTR',
+            },
+        ],
+        positions: [
+            {
+                id: 3,
+                name: 'Backend Java',
+            },
+        ],
+        lastActivity: new Date(),
+    },
+    {
+        id: 243,
+        name: 'Дорохин Владислав',
+        image: '',
+        status: {
+            type: StudentStatusType.Refused,
+            number: 0,
+        },
+        interviewsCount: 0,
+        companies: [
+            {
+                id: 1,
+                name: 'NTR',
+            },
+        ],
+        positions: [
+            {
+                id: 3,
+                name: 'Backend Java',
+            },
+        ],
+        lastActivity: new Date(),
+    },
+];
 
 export const STUDENT_INFO_MOCK: StudentInfoPayload = {
     id: 132,

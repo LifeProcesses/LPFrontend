@@ -24,7 +24,7 @@ const PositionItem: React.FC<{ position: PositionPayload }> = ({ position }) => 
                     {position.companies.map((company, i) => (
                         <div
                             onClick={() => {
-                                navigate(`/companies/${company.id}`);
+                                navigate(`/companies/${company.companyId}`);
                             }}
                             className='position__companies-item'
                             key={i}

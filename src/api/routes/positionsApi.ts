@@ -6,7 +6,7 @@ export const positionsApi = createApi({
     reducerPath: 'positionsApi',
     tagTypes: [''],
     baseQuery: fetchBaseQuery({
-        baseUrl: ``,
+        baseUrl: `http://localhost:8080/positions`,
         prepareHeaders: (headers) => {
             // get token from LS
             const token = '';
@@ -21,18 +21,10 @@ export const positionsApi = createApi({
         return {
             getPositionsList: build.query<PositionsPayload, void>({
                 query: () => ({
-                    url: `positions`,
+                    url: ``,
                     method: 'GET',
                 }),
                 providesTags: [{ type: '' }],
-            }),
-            examplePost: build.mutation<null, null>({
-                query: (body) => ({
-                    url: ``,
-                    method: 'POST',
-                    body,
-                }),
-                invalidatesTags: [{ type: '' }],
             }),
         };
     },

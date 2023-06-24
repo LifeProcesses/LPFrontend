@@ -13,7 +13,7 @@ import type { ColumnsType } from 'antd/es/table';
 
 import './PositionCard.scss';
 
-const PositionCard: React.FC<PositionCardProps> = ({ position, isOpen, onClose }) => {
+const PositionCard: React.FC<PositionCardProps> = ({ position, isOpen, onClose, onClickStudent }) => {
     const [selectedStatuses, setSelectedStatuses] = useState<string[]>([]);
 
     const statusesOptions = useMemo(
@@ -40,9 +40,9 @@ const PositionCard: React.FC<PositionCardProps> = ({ position, isOpen, onClose }
             title: 'Имя',
             dataIndex: 'name',
             key: 'name',
-            render: (_, { name, image }) => (
-                <div className='student-name'>
-                    <Avatar src={image} style={{ marginRight: '17px' }} />
+            render: (_, { id, name, image }) => (
+                <div className='student-name' onClick={() => onClickStudent(id)}>
+                    <Avatar src={image && <img src={image} alt='avatar' />} style={{ marginRight: '17px' }} />
                     <span>{name}</span>
                 </div>
             ),

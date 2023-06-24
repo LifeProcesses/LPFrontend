@@ -3,23 +3,24 @@ import React, { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useGetCompaniesListQuery } from 'api/routes/companiesApi';
-import { COMPANIES_MOCK } from 'helpers/mocks/Companies.mock';
+// import { COMPANIES_MOCK } from 'helpers/mocks/Companies.mock';
 
 import './CompaniesList.scss';
 
 const CompaniesList: React.FC = () => {
     const navigate = useNavigate();
 
-    const { isLoading: isCompaniesLoading } = useGetCompaniesListQuery();
-    const companiesList = COMPANIES_MOCK;
+    const { data: companiesList, isLoading: isCompaniesLoading } = useGetCompaniesListQuery();
+    // const { isLoading: isCompaniesLoading } = useGetCompaniesListQuery();
+    // const companiesList = COMPANIES_MOCK;
 
     const [filterValue, setFilterValue] = useState<string>('');
 
     const filteredCompanies = useMemo(() => {
-        return companiesList.companies.filter((company) =>
+        return companiesList?.filter((company) =>
             company.name.toLocaleLowerCase().includes(filterValue.toLocaleLowerCase()),
         );
-    }, [companiesList.companies, filterValue]);
+    }, [companiesList, filterValue]);
 
     return (
         <div className='companies-list'>
@@ -29,7 +30,7 @@ const CompaniesList: React.FC = () => {
                 placeholder='Поиск'
                 className='companies-list__search'
             />
-            <span className='companies-list__info'>Найдено комапний: {filteredCompanies.length}</span>
+            <span className='companies-list__info'>Найдено компаний: {filteredCompanies?.length || 0}</span>
             <List
                 loading={isCompaniesLoading}
                 dataSource={filteredCompanies}
@@ -38,7 +39,7 @@ const CompaniesList: React.FC = () => {
                         <div
                             className='companies-list__item'
                             onClick={() => {
-                                navigate(`${item.id}`);
+                                navigate(`${item.companyId}`);
                             }}
                         >
                             <span>{item.name}</span>

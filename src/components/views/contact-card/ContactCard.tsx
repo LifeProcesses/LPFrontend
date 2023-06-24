@@ -19,7 +19,11 @@ const ContactCard: React.FC<ContactCardProps> = ({ contact, isOpen, onClose }) =
             ) : (
                 <div className='contact-card'>
                     <div className='contact-card__info'>
-                        <Avatar src={contact.image} size={80} style={{ marginRight: '17px' }} />
+                        <Avatar
+                            src={contact.image && <img src={contact.image} alt='avatar' />}
+                            size={80}
+                            style={{ marginRight: '17px' }}
+                        />
                         <div>
                             <p className='contact-card__info_name'>{contact.name}</p>
                             <p>{contact.position}</p>
@@ -27,8 +31,8 @@ const ContactCard: React.FC<ContactCardProps> = ({ contact, isOpen, onClose }) =
                     </div>
                     <div className='contact-card__contacts'>
                         <p>Контакты</p>
-                        {contact.contacts.map((cont) => (
-                            <p>{`${cont.contactType}: ${cont.value}`}</p>
+                        {contact.contacts.map((cont, i) => (
+                            <p key={i}>{`${cont.contactType}: ${cont.value}`}</p>
                         ))}
                     </div>
                 </div>

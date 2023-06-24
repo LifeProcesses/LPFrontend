@@ -1,12 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 
-import { ChangeInterviewStatusModel, CommentModel, StudentInfoPayload, StudentsPayload } from 'api/Models';
+import { ChangeInterviewStatusModel, CommentModel, StudentInfoPayload, StudentPayload } from 'api/Models';
 
 export const studentsApi = createApi({
     reducerPath: 'studentsApi',
     tagTypes: [''],
     baseQuery: fetchBaseQuery({
-        baseUrl: ``,
+        baseUrl: `http://localhost:8080/`,
         prepareHeaders: (headers) => {
             // get token from LS
             const token = '';
@@ -19,7 +19,7 @@ export const studentsApi = createApi({
 
     endpoints: (build) => {
         return {
-            getStudentsList: build.query<StudentsPayload, void>({
+            getStudentsList: build.query<StudentPayload[], void>({
                 query: () => ({
                     url: `students`,
                     method: 'GET',

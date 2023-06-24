@@ -4,10 +4,9 @@ import { CompanyPayload, PositionPayload, StudentPayload } from 'api/Models';
 import { companiesApi } from 'api/routes/companiesApi';
 import { positionsApi } from 'api/routes/positionsApi';
 import { studentsApi } from 'api/routes/studentsApi';
-import { COMPANIES_MOCK } from 'helpers/mocks/Companies.mock';
-import { POSITIONS_MOCK } from 'helpers/mocks/Positions.mock';
-
-import { STUDENTS_MOCK } from 'helpers/mocks/Students.mock';
+// import { COMPANIES_MOCK } from 'helpers/mocks/Companies.mock';
+// import { POSITIONS_MOCK } from 'helpers/mocks/Positions.mock';
+// import { STUDENTS_MOCK } from 'helpers/mocks/Students.mock';
 
 interface StudentsState {
     students: StudentPayload[];
@@ -17,10 +16,14 @@ interface StudentsState {
 }
 
 const initialState: StudentsState = {
-    students: STUDENTS_MOCK.students,
-    filteredStudents: STUDENTS_MOCK.students,
-    companies: COMPANIES_MOCK.companies,
-    positions: POSITIONS_MOCK.positions,
+    // students: STUDENTS_MOCK,
+    // filteredStudents: STUDENTS_MOCK,
+    // companies: COMPANIES_MOCK,
+    // positions: POSITIONS_MOCK.positions,
+    students: [],
+    filteredStudents: [],
+    companies: [],
+    positions: [],
 };
 
 export const studentsSlice = createSlice({
@@ -44,11 +47,11 @@ export const studentsSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addMatcher(studentsApi.endpoints.getStudentsList.matchFulfilled, (state, { payload }) => {
-            state.students = payload.students;
-            state.filteredStudents = payload.students;
+            state.students = payload;
+            state.filteredStudents = payload;
         });
         builder.addMatcher(companiesApi.endpoints.getCompaniesList.matchFulfilled, (state, { payload }) => {
-            state.companies = payload.companies;
+            state.companies = payload;
         });
         builder.addMatcher(positionsApi.endpoints.getPositionsList.matchFulfilled, (state, { payload }) => {
             state.positions = payload.positions;

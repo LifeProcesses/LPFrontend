@@ -25,9 +25,9 @@ const StudentsFilters: React.FC = () => {
     const companiesOptions = useMemo(
         () =>
             companies
-                .filter((company) => !selectedCompanies.includes(company.id))
+                .filter((company) => !selectedCompanies.includes(company.companyId))
                 .map((company) => ({
-                    value: company.id,
+                    value: company.companyId,
                     label: company.name,
                 })),
         [companies, selectedCompanies],
@@ -87,7 +87,7 @@ const StudentsFilters: React.FC = () => {
                 {selectedCompanies.map((company) => (
                     <FilterTagComponent
                         key={company}
-                        label={`Компания: ${companies.find((comp) => comp.id === company)?.name || ''}`}
+                        label={`Компания: ${companies.find((comp) => comp.companyId === company)?.name || ''}`}
                         onClose={() => {
                             setSelectedCompanies((prev) => prev.filter((comp) => comp !== company));
                         }}

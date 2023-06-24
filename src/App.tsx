@@ -2,6 +2,7 @@ import { Route, Routes, BrowserRouter as Router, Navigate } from 'react-router-d
 
 import CompaniesPage from 'pages/companies/CompaniesPage';
 import CompanyPage from 'pages/company/CompanyPage';
+import CreateCompanyPage from 'pages/create-company/CreateCompanyPage';
 import PositionsPage from 'pages/positions/PositionsPage';
 import StudentsPage from 'pages/students/StudentsPage';
 import TemplatePageLayout from 'pages/templateLayout/TemplatePageLayout';
@@ -18,7 +19,8 @@ function App() {
                         <Route path='students' element={<StudentsPage />} />
                         <Route path='positions' element={<PositionsPage />} />
                         <Route path='companies' element={<CompaniesPage />} />
-                        <Route path='companies/:id' element={<CompanyPage />} />
+                        <Route path='companies/create' element={<CreateCompanyPage />} />
+                        <Route path='companies/:companyId' element={<CompanyPage />} />
                     </Route>
                 </Routes>
             </div>

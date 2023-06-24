@@ -1,12 +1,18 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 
-import { CompaniesPayload, CompanyDetailPayload, CompanyPositionsListPayload } from 'api/Models';
+import {
+    AddCompanyPositionModel,
+    CompanyDetailPayload,
+    CompanyPayload,
+    CompanyPositionsListPayload,
+    CreateCompanyModel,
+} from 'api/Models';
 
 export const companiesApi = createApi({
     reducerPath: 'companiesApi',
-    tagTypes: [''],
+    tagTypes: ['companyPositions'],
     baseQuery: fetchBaseQuery({
-        baseUrl: `companies/`,
+        baseUrl: `http://localhost:8080/companies`,
         prepareHeaders: (headers) => {
             // get token from LS
             const token = '';
@@ -19,29 +25,48 @@ export const companiesApi = createApi({
 
     endpoints: (build) => {
         return {
-            getCompaniesList: build.query<CompaniesPayload, void>({
+            getCompaniesList: build.query<CompanyPayload[], void>({
                 query: () => ({
                     url: ``,
                     method: 'GET',
                 }),
-                providesTags: [{ type: '' }],
             }),
             getCompanyDetails: build.query<CompanyDetailPayload, number>({
                 query: (id) => ({
-                    url: `${id}`,
+                    url: `/${id}`,
                     method: 'GET',
                 }),
-                providesTags: [{ type: '' }],
             }),
             getCompanyPositions: build.query<CompanyPositionsListPayload, number>({
                 query: (id) => ({
-                    url: `${id}/positions`,
+                    url: `/${id}/positions`,
                     method: 'GET',
                 }),
-                providesTags: [{ type: '' }],
+                providesTags: [{ type: 'companyPositions' }],
+            }),
+            addCompanyPosition: build.mutation<void, AddCompanyPositionModel>({
+                query: (body) => ({
+                    url: `/${body.companyId}/positions`,
+                    method: 'POST',
+                    body: body.position,
+                }),
+                invalidatesTags: [{ type: 'companyPositions' }],
+            }),
+            createCompany: build.mutation<void, CreateCompanyModel>({
+                query: (body) => ({
+                    url: ``,
+                    method: 'POST',
+                    body,
+                }),
             }),
         };
     },
 });
 
-export const { useGetCompaniesListQuery, useGetCompanyDetailsQuery, useGetCompanyPositionsQuery } = companiesApi;
+export const {
+    useGetCompaniesListQuery,
+    useGetCompanyDetailsQuery,
+    useGetCompanyPositionsQuery,
+    useAddCompanyPositionMutation,
+    useCreateCompanyMutation,
+} = companiesApi;

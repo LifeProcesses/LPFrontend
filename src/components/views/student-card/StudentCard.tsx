@@ -47,7 +47,11 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, isOpen, onClose, isL
             ) : (
                 <div className='student-card'>
                     <div className='student-card__info'>
-                        <Avatar src={student.image} size={80} style={{ marginRight: '17px' }} />
+                        <Avatar
+                            src={student.image && <img src={student.image} alt='avatar' />}
+                            size={80}
+                            style={{ marginRight: '17px' }}
+                        />
                         <div>
                             <p className='student-card__info_name'>{student.name}</p>
                             <p>{student.position}</p>

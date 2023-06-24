@@ -1,4 +1,9 @@
 .companies-page {
-    display: flex;
-    justify-content: center;
+    margin: auto;
+    width: min(700px, 100%);
+
+    & > button {
+        margin-bottom: 20px;
+        width: fit-content;
+    }
 }
