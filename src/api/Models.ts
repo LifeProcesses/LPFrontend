@@ -159,7 +159,7 @@ export interface CreateCompanyModel {
     name: string;
     description: string;
     image: string;
-    representatives: CompanyRepresentativesModel[];
+    representatives: CompanyRepresentativeModel[];
     contacts: CompanyContactModel[];
 }
 
@@ -170,11 +170,14 @@ export interface CompanyContactModel {
     value: string;
 }
 
-export interface CompanyRepresentativesModel {
+export interface CompanyRepresentativeModel {
+    id: number;
     name: string;
     position: string;
-    contacts: {
-        contactType: string;
-        value: string;
-    }[];
+    contacts: CompanyRepresentativeContactModel[];
+}
+
+export interface CompanyRepresentativeContactModel {
+    contactType: string;
+    value: string;
 }

@@ -1,14 +1,11 @@
 import { Input } from 'antd';
 import { useCallback } from 'react';
 
-import { CompanyContactModel } from 'api/Models';
+import { ContactFormProps } from '../CompanyForm.interface';
 
 import './ContactForm.scss';
 
-const ContactForm: React.FC<{
-    contact: CompanyContactModel;
-    onChangeContact: (val: CompanyContactModel) => void;
-}> = ({ contact, onChangeContact }) => {
+const ContactForm: React.FC<ContactFormProps> = ({ contact, onChangeContact }) => {
     const handleChangeContact = useCallback(
         (field: 'name' | 'position' | 'contactType' | 'value', value: string) => {
             onChangeContact({ ...contact, [field]: value });

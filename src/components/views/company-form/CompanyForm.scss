@@ -1,7 +1,22 @@
+@import 'styles/typography';
+
 .company-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
+
+    &__main {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+
+        & > div {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
 
     &__positions {
         display: flex;
@@ -13,8 +28,8 @@
         }
     }
 
-    &__contacts {
-        &--title {
+    &__representatives {
+        &_title {
             margin-bottom: 20px;
 
             button {
@@ -22,7 +37,50 @@
             }
         }
 
-        &--item {
+        &_item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 15px;
+
+            margin-bottom: 20px;
+            padding: 20px;
+
+            border: 1px solid var(--neutral-00);
+            border-radius: 20px;
+
+            > div {
+                p {
+                    margin: 0;
+                }
+
+                > p {
+                    @include text-16-24-400;
+
+                    margin-bottom: 10px;
+
+                    color: var(--blue);
+                }
+
+                div {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 15px;
+                }
+            }
+        }
+    }
+
+    &__contacts {
+        &_title {
+            margin-bottom: 20px;
+
+            button {
+                margin: 0 10px;
+            }
+        }
+
+        &_item {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;

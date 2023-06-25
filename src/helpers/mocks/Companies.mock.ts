@@ -1,4 +1,9 @@
-import { CompanyPayload, CompanyDetailPayload, CompanyPositionsListPayload } from 'api/Models';
+import {
+    CompanyPayload,
+    CompanyDetailPayload,
+    CompanyPositionsListPayload,
+    CompanyRepresentativeModel,
+} from 'api/Models';
 import { StudentStatusType } from 'helpers/types';
 
 export const COMPANIES_MOCK: CompanyPayload[] = [
@@ -123,3 +128,32 @@ export const COMPANY_POSITIONS_MOCK: CompanyPositionsListPayload = {
         },
     ],
 };
+
+export const REPRESENTATIVES_MOCK: CompanyRepresentativeModel[] = [
+    {
+        id: 1,
+        name: 'Данила Соколов',
+        position: 'Преподаватель HITs',
+        contacts: [
+            {
+                contactType: 'Email',
+                value: 'email@mail.com',
+            },
+            {
+                contactType: 'Телефон',
+                value: '80000000000',
+            },
+        ],
+    },
+    {
+        id: 2,
+        name: 'Лидия Иванова',
+        position: 'Преподаватель HITs',
+        contacts: [
+            {
+                contactType: 'Email',
+                value: 'email@mail.com',
+            },
+        ],
+    },
+];
