@@ -70,13 +70,13 @@ const CompanyForm: React.FC = () => {
         await createCompany({
             name: companyName,
             description: companyDescription,
-            image: '',
+            image: companyImage,
             representatives: selectedRepresentatives,
             contacts,
         })
             .unwrap()
             .then(() => navigate(-1));
-    }, [companyDescription, companyName, contacts, createCompany, navigate, selectedRepresentatives]);
+    }, [companyDescription, companyImage, companyName, contacts, createCompany, navigate, selectedRepresentatives]);
 
     const contactsList = useMemo(
         () => (
