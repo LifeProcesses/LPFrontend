@@ -5,22 +5,13 @@ import { Contact } from './CompanyDetails.interface';
 
 import ContactCard from '../contact-card/ContactCard';
 
-import { CompanyContactPayload, CompanyRepresentativePayload } from 'api/Models';
+import { CompanyContactPayload } from 'api/Models';
 import { useGetCompanyDetailsQuery } from 'api/routes/companiesApi';
 // import { COMPANY_DETAIL_MOCK } from 'helpers/mocks/Companies.mock';
 
 import AppAvatar from 'components/shared/AppAvatar';
 
 import './CompanyDetails.scss';
-
-const convertRepresentativesToContact = (arr: CompanyRepresentativePayload[]) => {
-    return arr.map((repres) => ({
-        name: repres.name,
-        position: repres.position,
-        image: repres.image,
-        contacts: repres.contactsShortDto,
-    }));
-};
 
 const convertToContact = (arr: CompanyContactPayload[]) => {
     return arr.reduce((acc: Contact[], item: CompanyContactPayload) => {
@@ -51,15 +42,7 @@ const CompanyDetails: React.FC = () => {
     const [isContactCardOpen, setIsContactCardOpen] = useState<boolean>(false);
     const [currentContact, setCurrentContact] = useState<Contact | null>(null);
 
-    const contacts = useMemo(
-        () => convertToContact(companyDetails?.contactsFullDto || []),
-        [companyDetails?.contactsFullDto],
-    );
-
-    const representatives = useMemo(
-        () => convertRepresentativesToContact(companyDetails?.representativesDto || []),
-        [companyDetails?.representativesDto],
-    );
+    const contacts = useMemo(() => convertToContact(companyDetails?.contacts || []), [companyDetails?.contacts]);
 
     const handleClickContact = useCallback((contact: Contact) => {
         setCurrentContact(contact);
@@ -78,7 +61,7 @@ const CompanyDetails: React.FC = () => {
                         <div className='company-details__description'>{companyDetails.description}</div>
                         <div className='company-details__contact'>
                             <span className='company-details__contact_title'>Представитель:</span>
-                            {representatives.map((repres) => (
+                            {companyDetails?.representatives.map((repres, i) => (
                                 <span
                                     className='company-details__contact_item'
                                     onClick={() => {
@@ -86,12 +69,13 @@ const CompanyDetails: React.FC = () => {
                                     }}
                                 >
                                     {repres.name}
+                                    {i !== companyDetails?.representatives.length - 1 && `, `}
                                 </span>
                             ))}
                         </div>
                         <div className='company-details__contact'>
                             <span className='company-details__contact_title'>Контакты:</span>
-                            {contacts.map((contact) => (
+                            {contacts.map((contact, i) => (
                                 <span
                                     className='company-details__contact_item'
                                     onClick={() => {
@@ -99,6 +83,7 @@ const CompanyDetails: React.FC = () => {
                                     }}
                                 >
                                     {contact.name}
+                                    {i !== contacts.length - 1 && `, `}
                                 </span>
                             ))}
                         </div>

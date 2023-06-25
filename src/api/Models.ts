@@ -100,8 +100,8 @@ export interface CompanyDetailPayload {
     name: string;
     description: string;
     image: string;
-    representativesDto: CompanyRepresentativePayload[];
-    contactsFullDto: CompanyContactPayload[];
+    representatives: CompanyRepresentativePayload[];
+    contacts: CompanyContactPayload[];
 }
 
 export interface CompanyRepresentativePayload {
@@ -109,7 +109,7 @@ export interface CompanyRepresentativePayload {
     name: string;
     position: string;
     image: string;
-    contactsShortDto: {
+    contacts: {
         contactType: string;
         value: string;
     }[];
