@@ -1,4 +1,4 @@
-import { Avatar, Table, Tag } from 'antd';
+import { Table, Tag } from 'antd';
 import moment from 'moment';
 
 import { useCallback, useState } from 'react';
@@ -8,6 +8,7 @@ import StudentCard from '../student-card/StudentCard';
 import { StudentInfoPayload, StudentPayload } from 'api/Models';
 import { useLazyGetStudentInfoQuery } from 'api/routes/studentsApi';
 
+import AppAvatar from 'components/shared/AppAvatar';
 import { STUDENT_STATUS_LABEL, STUDENT_STATUS_TAG_CLASS } from 'helpers/constants';
 import { STUDENT_INFO_MOCK } from 'helpers/mocks/Students.mock';
 import { useAppSelector } from 'hooks/useAppSelector';
@@ -31,7 +32,7 @@ const StudentsTable: React.FC<{ isLoading: boolean }> = ({ isLoading }) => {
             key: 'name',
             render: (_, { name, image }) => (
                 <div className='student-name'>
-                    <Avatar src={image && <img src={image} alt='avatar' />} style={{ marginRight: '17px' }} />
+                    <AppAvatar src={image} style={{ marginRight: '17px' }} />
                     <span>{name}</span>
                 </div>
             ),

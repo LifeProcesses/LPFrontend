@@ -1,4 +1,4 @@
-import { Avatar, Button, Input } from 'antd';
+import { Button, Input } from 'antd';
 import { useCallback, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,6 +7,8 @@ import RepresentativesModal from './representatives-modal/RepresentativesModal';
 
 import { CompanyContactModel, CompanyRepresentativeModel } from 'api/Models';
 import { useCreateCompanyMutation } from 'api/routes/companiesApi';
+
+import AppAvatar from 'components/shared/AppAvatar';
 import { REPRESENTATIVES_MOCK } from 'helpers/mocks/Companies.mock';
 
 import './CompanyForm.scss';
@@ -129,7 +131,7 @@ const CompanyForm: React.FC = () => {
         <>
             <div className='company-form'>
                 <div className='company-form__main'>
-                    <Avatar src={companyImage && <img src={companyImage} alt='logo' />} size={80} />
+                    <AppAvatar size={80} src={companyImage} />
                     <div>
                         <Input
                             value={companyName}

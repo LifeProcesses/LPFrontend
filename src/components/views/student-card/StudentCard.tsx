@@ -1,4 +1,4 @@
-import { Avatar, Drawer, Select } from 'antd';
+import { Drawer, Select } from 'antd';
 
 import { useMemo, useState } from 'react';
 
@@ -6,6 +6,7 @@ import CreateInterviewForm from './create-interview-form/CreateInterviewForm';
 import StudentInterview from './student-interview/StudentInterview';
 import { StudentCardProps } from './StudentCard.interface';
 
+import AppAvatar from 'components/shared/AppAvatar';
 import { tagRender } from 'components/shared/selectTag/SelectTag';
 import { STUDENT_STATUS_LABEL } from 'helpers/constants';
 
@@ -47,11 +48,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, isOpen, onClose, isL
             ) : (
                 <div className='student-card'>
                     <div className='student-card__info'>
-                        <Avatar
-                            src={student.image && <img src={student.image} alt='avatar' />}
-                            size={80}
-                            style={{ marginRight: '17px' }}
-                        />
+                        <AppAvatar size={80} src={student.image} style={{ marginRight: '17px' }} />
                         <div>
                             <p className='student-card__info_name'>{student.name}</p>
                             <p>{student.position}</p>

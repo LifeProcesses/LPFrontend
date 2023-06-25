@@ -1,10 +1,11 @@
-import { Avatar, Dropdown, Input, Tag } from 'antd';
+import { Dropdown, Input, Tag } from 'antd';
 
 import { useCallback, useMemo, useState } from 'react';
 
 import { InterviewPayload } from 'api/Models';
 import { useAddInterviewCommentMutation, useChangeInterviewStatusMutation } from 'api/routes/studentsApi';
 
+import AppAvatar from 'components/shared/AppAvatar';
 import { INTERVIEW_STATUS_LABEL, STUDENT_STATUS_TAG_CLASS } from 'helpers/constants';
 import { getDateFromTimestamp, getTimeFromTimestamp } from 'helpers/timeFormatting';
 
@@ -99,10 +100,7 @@ const StudentInterview: React.FC<{ interview: InterviewPayload }> = ({ interview
                 {visibleComments.map((comment, i) => (
                     <div className='comment' key={i}>
                         <div className='comment_info'>
-                            <Avatar
-                                src={comment.author.image && <img src={comment.author.image} alt='avatar' />}
-                                size={40}
-                            />
+                            <AppAvatar size={40} src={comment.author.image} />
                             <span className='comment_info_name'>{comment.author.name}</span>
                             <div style={{ flexGrow: 1 }}></div>
                             <span className='comment_info_date'>

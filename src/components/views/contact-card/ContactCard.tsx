@@ -1,8 +1,9 @@
-import { Avatar, Drawer } from 'antd';
+import { Drawer } from 'antd';
 
 import { ContactCardProps } from './ContactCard.interface';
 
 import './ContactCard.scss';
+import AppAvatar from 'components/shared/AppAvatar';
 
 const ContactCard: React.FC<ContactCardProps> = ({ contact, isOpen, onClose }) => {
     return (
@@ -19,11 +20,7 @@ const ContactCard: React.FC<ContactCardProps> = ({ contact, isOpen, onClose }) =
             ) : (
                 <div className='contact-card'>
                     <div className='contact-card__info'>
-                        <Avatar
-                            src={contact.image && <img src={contact.image} alt='avatar' />}
-                            size={80}
-                            style={{ marginRight: '17px' }}
-                        />
+                        <AppAvatar size={80} src={contact.image} style={{ marginRight: '17px' }} />
                         <div>
                             <p className='contact-card__info_name'>{contact.name}</p>
                             <p>{contact.position}</p>

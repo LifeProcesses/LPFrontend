@@ -1,4 +1,4 @@
-import { Avatar, Drawer, Select, Table, Tag } from 'antd';
+import { Drawer, Select, Table, Tag } from 'antd';
 import moment from 'moment';
 import { useMemo, useState } from 'react';
 
@@ -6,6 +6,7 @@ import { PositionCardProps } from './PositionCard.interface';
 
 import { CompanyPositionStudentPayload } from 'api/Models';
 
+import AppAvatar from 'components/shared/AppAvatar';
 import { tagRender } from 'components/shared/selectTag/SelectTag';
 import { STUDENT_STATUS_LABEL, STUDENT_STATUS_TAG_CLASS } from 'helpers/constants';
 
@@ -42,7 +43,7 @@ const PositionCard: React.FC<PositionCardProps> = ({ position, isOpen, onClose, 
             key: 'name',
             render: (_, { id, name, image }) => (
                 <div className='student-name' onClick={() => onClickStudent(id)}>
-                    <Avatar src={image && <img src={image} alt='avatar' />} style={{ marginRight: '17px' }} />
+                    <AppAvatar src={image} style={{ marginRight: '17px' }} />
                     <span>{name}</span>
                 </div>
             ),

@@ -1,4 +1,3 @@
-import { Avatar } from 'antd';
 import { useCallback, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -9,6 +8,8 @@ import ContactCard from '../contact-card/ContactCard';
 import { CompanyContactPayload, CompanyRepresentativePayload } from 'api/Models';
 import { useGetCompanyDetailsQuery } from 'api/routes/companiesApi';
 // import { COMPANY_DETAIL_MOCK } from 'helpers/mocks/Companies.mock';
+
+import AppAvatar from 'components/shared/AppAvatar';
 
 import './CompanyDetails.scss';
 
@@ -71,10 +72,7 @@ const CompanyDetails: React.FC = () => {
                 {companyDetails ? (
                     <>
                         <div className='company-details__title'>
-                            <Avatar
-                                src={companyDetails.image && <img src={companyDetails.image} alt='logo' />}
-                                size={80}
-                            />
+                            <AppAvatar size={80} src={companyDetails.image} />
                             <h1 className='company-details__title_name'>{companyDetails.name}</h1>
                         </div>
                         <div className='company-details__description'>{companyDetails.description}</div>
