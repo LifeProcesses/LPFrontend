@@ -1,4 +1,8 @@
 .positions-page {
-    display: flex;
-    justify-content: center;
+    margin: auto;
+    width: min(800px, 100%);
+
+    > *:first-child {
+        margin-bottom: 20px;
+    }
 }

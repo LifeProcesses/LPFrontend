@@ -26,7 +26,7 @@ const CreateInterviewForm: React.FC = () => {
     const positionsOptions = useMemo(
         () =>
             positions.map((position) => ({
-                value: position.id,
+                value: position.positionId,
                 label: position.name,
             })),
         [positions],

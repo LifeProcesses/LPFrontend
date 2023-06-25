@@ -36,9 +36,9 @@ const StudentsFilters: React.FC = () => {
     const positionsOptions = useMemo(
         () =>
             positions
-                .filter((position) => !selectedPositions.includes(position.id))
+                .filter((position) => !selectedPositions.includes(position.positionId))
                 .map((position) => ({
-                    value: position.id,
+                    value: position.positionId,
                     label: position.name,
                 })),
         [positions, selectedPositions],
@@ -96,7 +96,7 @@ const StudentsFilters: React.FC = () => {
                 {selectedPositions.map((position) => (
                     <FilterTagComponent
                         key={position}
-                        label={`Позиция: ${positions.find((pos) => pos.id === position)?.name || ''}`}
+                        label={`Позиция: ${positions.find((pos) => pos.positionId === position)?.name || ''}`}
                         onClose={() => {
                             setSelectedPositions((prev) => prev.filter((pos) => pos !== position));
                         }}

@@ -1,0 +1,33 @@
+@import 'styles/typography';
+
+.create-position {
+    position: relative;
+
+    &__form {
+        position: absolute;
+        z-index: 10;
+        top: 120%;
+        left: 0;
+
+        padding: 20px;
+
+        border: 1px solid var(--neutral-02);
+        border-radius: 20px;
+        background-color: var(--light-00);
+
+        &_options {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            margin-bottom: 20px;
+        }
+
+        &_actions {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+    }
+}

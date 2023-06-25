@@ -24,15 +24,15 @@ const AddPositionForm: React.FC<{ companyPositions?: CompanyPositionPayload[]; c
 
     const positionsOptions = useMemo(
         () =>
-            companyPositions
-                ? positions?.positions
-                      .filter((position) => !companyPositions.some((p) => p.id === position.id))
+            companyPositions && positions
+                ? positions
+                      .filter((position) => !companyPositions.some((p) => p.id === position.positionId))
                       .map((position) => ({
-                          value: position.id,
+                          value: position.positionId,
                           label: position.name,
                       }))
                 : [],
-        [companyPositions, positions?.positions],
+        [companyPositions, positions],
     );
 
     const handleCancelClick = useCallback(() => {

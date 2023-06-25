@@ -21,7 +21,7 @@ const PositionItem: React.FC<{ position: PositionPayload }> = ({ position }) => 
             </div>
             {isExpanded && (
                 <div className='position__companies'>
-                    {position.companies.map((company, i) => (
+                    {position.companies?.map((company, i) => (
                         <div
                             onClick={() => {
                                 navigate(`/companies/${company.companyId}`);

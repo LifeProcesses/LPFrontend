@@ -15,10 +15,10 @@ const PositionsList: React.FC = () => {
     const [filterValue, setFilterValue] = useState<string>('');
 
     const filteredPositions = useMemo(() => {
-        return positionsList?.positions.filter((position) =>
+        return positionsList?.filter((position) =>
             position.name.toLocaleLowerCase().includes(filterValue.toLocaleLowerCase()),
         );
-    }, [filterValue, positionsList?.positions]);
+    }, [filterValue, positionsList]);
 
     return (
         <div className='positions-list'>
@@ -30,9 +30,9 @@ const PositionsList: React.FC = () => {
             />
             <div className='positions-list__info'>
                 <span>Найдено позиций: {filteredPositions?.length || 0}</span>
-                <span>
+                {/* <span>
                     план {positionsList?.plan} | взяли {positionsList?.taken}
-                </span>
+                </span> */}
             </div>
             <List
                 dataSource={filteredPositions}

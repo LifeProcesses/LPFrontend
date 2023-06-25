@@ -1,10 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 
-import { PositionsPayload } from 'api/Models';
+import { CreatePositionModel, PositionPayload } from 'api/Models';
 
 export const positionsApi = createApi({
     reducerPath: 'positionsApi',
-    tagTypes: [''],
+    tagTypes: ['positions'],
     baseQuery: fetchBaseQuery({
         baseUrl: `http://localhost:8080/positions`,
         prepareHeaders: (headers) => {
@@ -19,15 +19,23 @@ export const positionsApi = createApi({
 
     endpoints: (build) => {
         return {
-            getPositionsList: build.query<PositionsPayload, void>({
+            getPositionsList: build.query<PositionPayload[], void>({
                 query: () => ({
                     url: ``,
                     method: 'GET',
                 }),
-                providesTags: [{ type: '' }],
+                providesTags: [{ type: 'positions' }],
+            }),
+            createPosition: build.mutation<void, CreatePositionModel>({
+                query: (body) => ({
+                    url: ``,
+                    method: 'POST',
+                    body: body,
+                }),
+                invalidatesTags: [{ type: 'positions' }],
             }),
         };
     },
 });
 
-export const { useGetPositionsListQuery } = positionsApi;
+export const { useGetPositionsListQuery, useCreatePositionMutation } = positionsApi;

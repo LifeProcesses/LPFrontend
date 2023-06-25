@@ -19,7 +19,7 @@ const initialState: StudentsState = {
     // students: STUDENTS_MOCK,
     // filteredStudents: STUDENTS_MOCK,
     // companies: COMPANIES_MOCK,
-    // positions: POSITIONS_MOCK.positions,
+    // positions: POSITIONS_MOCK,
     students: [],
     filteredStudents: [],
     companies: [],
@@ -54,7 +54,7 @@ export const studentsSlice = createSlice({
             state.companies = payload;
         });
         builder.addMatcher(positionsApi.endpoints.getPositionsList.matchFulfilled, (state, { payload }) => {
-            state.positions = payload.positions;
+            state.positions = payload;
         });
     },
 });

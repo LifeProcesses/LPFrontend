@@ -69,18 +69,22 @@ export interface CompanyPayload {
     taken: number;
 }
 
-export interface PositionsPayload {
-    plan: number;
-    taken: number;
-    positions: PositionPayload[];
-}
+// export interface PositionsPayload {
+//     plan: number;
+//     taken: number;
+//     positions: PositionPayload[];
+// }
 
 export interface PositionPayload {
-    id: number;
+    positionId: number;
     name: string;
     plan: number;
     taken: number;
     companies: CompanyPayload[];
+}
+
+export interface CreatePositionModel {
+    name: string;
 }
 
 export interface CommentModel {
