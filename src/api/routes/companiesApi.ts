@@ -10,7 +10,7 @@ import {
 
 export const companiesApi = createApi({
     reducerPath: 'companiesApi',
-    tagTypes: ['companyPositions'],
+    tagTypes: ['companies', 'companyPositions'],
     baseQuery: fetchBaseQuery({
         baseUrl: `http://localhost:8080/companies`,
         prepareHeaders: (headers) => {
@@ -30,6 +30,7 @@ export const companiesApi = createApi({
                     url: ``,
                     method: 'GET',
                 }),
+                providesTags: [{ type: 'companies' }],
             }),
             getCompanyDetails: build.query<CompanyDetailPayload, number>({
                 query: (id) => ({
@@ -58,6 +59,7 @@ export const companiesApi = createApi({
                     method: 'POST',
                     body,
                 }),
+                invalidatesTags: [{ type: 'companies' }],
             }),
         };
     },
