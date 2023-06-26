@@ -25,7 +25,7 @@ const AddPositionForm: React.FC<{ companyPositions?: CompanyPositionPayload[]; c
     const positionsOptions = useMemo(
         () =>
             companyPositions && positions
-                ? positions
+                ? positions.positions
                       .filter((position) => !companyPositions.some((p) => p.id === position.positionId))
                       .map((position) => ({
                           value: position.positionId,

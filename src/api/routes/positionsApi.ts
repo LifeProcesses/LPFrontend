@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 
-import { CreatePositionModel, PositionPayload } from 'api/Models';
+import { CreatePositionModel, PositionsPayload } from 'api/Models';
 
 export const positionsApi = createApi({
     reducerPath: 'positionsApi',
@@ -19,7 +19,7 @@ export const positionsApi = createApi({
 
     endpoints: (build) => {
         return {
-            getPositionsList: build.query<PositionPayload[], void>({
+            getPositionsList: build.query<PositionsPayload, void>({
                 query: () => ({
                     url: ``,
                     method: 'GET',

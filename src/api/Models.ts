@@ -6,13 +6,13 @@ import { InterviewStatusType, StudentStatusType } from 'helpers/types';
 // }
 
 export interface StudentPayload {
-    id: number;
+    studentId: number;
     name: string;
     image: string;
     status: {
         type: StudentStatusType;
         number: number;
-    };
+    } | null;
     interviewsCount: number;
     companies: {
         id: number;
@@ -22,7 +22,7 @@ export interface StudentPayload {
         id: number;
         name: string;
     }[];
-    lastActivity: Date;
+    lastActivity: Date | null;
 }
 
 export interface StudentInfoPayload {
@@ -69,11 +69,11 @@ export interface CompanyPayload {
     taken: number;
 }
 
-// export interface PositionsPayload {
-//     plan: number;
-//     taken: number;
-//     positions: PositionPayload[];
-// }
+export interface PositionsPayload {
+    plan: number;
+    taken: number;
+    positions: PositionPayload[];
+}
 
 export interface PositionPayload {
     positionId: number;

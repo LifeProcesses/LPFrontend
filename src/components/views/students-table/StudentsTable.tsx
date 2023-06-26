@@ -43,10 +43,12 @@ const StudentsTable: React.FC<{ isLoading: boolean }> = ({ isLoading }) => {
             key: 'status',
             render: (_, { status, interviewsCount }) => (
                 <div className='cell-wrapper cell-wrapper_status'>
-                    <Tag className={`lp-tag ${STUDENT_STATUS_TAG_CLASS[status.type]}`}>
-                        {STUDENT_STATUS_LABEL[status.type].toLowerCase()}
-                        <span>{!!status.number && ` (${status.number})`}</span>
-                    </Tag>
+                    {status && (
+                        <Tag className={`lp-tag ${STUDENT_STATUS_TAG_CLASS[status.type]}`}>
+                            {STUDENT_STATUS_LABEL[status.type].toLowerCase()}
+                            <span>{!!status.number && ` (${status.number})`}</span>
+                        </Tag>
+                    )}
                     {!!interviewsCount && <p className='cell-wrapper__total'>Всего вакансий: {interviewsCount}</p>}
                 </div>
             ),
@@ -81,7 +83,7 @@ const StudentsTable: React.FC<{ isLoading: boolean }> = ({ isLoading }) => {
             title: 'Активность',
             key: 'lastActivity',
             dataIndex: 'lastActivity',
-            render: (_, { lastActivity }) => <span>{moment(lastActivity).fromNow()}</span>,
+            render: (_, { lastActivity }) => <span>{lastActivity && moment(lastActivity).fromNow()}</span>,
         },
     ];
 
@@ -108,7 +110,7 @@ const StudentsTable: React.FC<{ isLoading: boolean }> = ({ isLoading }) => {
                 loading={isLoading}
                 pagination={{ hideOnSinglePage: true }}
                 onRow={(record) => ({
-                    onClick: () => handleOpenStudent(record.id),
+                    onClick: () => handleOpenStudent(record.studentId),
                 })}
             />
             <StudentCard

@@ -19,7 +19,7 @@ const initialState: StudentsState = {
     // students: STUDENTS_MOCK,
     // filteredStudents: STUDENTS_MOCK,
     // companies: COMPANIES_MOCK,
-    // positions: POSITIONS_MOCK,
+    // positions: POSITIONS_MOCK.positions,
     students: [],
     filteredStudents: [],
     companies: [],
@@ -41,7 +41,7 @@ export const studentsSlice = createSlice({
                     (!name || student.name.includes(name)) &&
                     (!companies || student.companies.some((item) => companies.includes(item.id))) &&
                     (!positions || student.positions.some((item) => positions.includes(item.id))) &&
-                    (!statuses || statuses.includes(student.status.type)),
+                    (!statuses || (student.status && statuses.includes(student.status.type))),
             );
         },
     },
@@ -54,7 +54,7 @@ export const studentsSlice = createSlice({
             state.companies = payload;
         });
         builder.addMatcher(positionsApi.endpoints.getPositionsList.matchFulfilled, (state, { payload }) => {
-            state.positions = payload;
+            state.positions = payload.positions;
         });
     },
 });

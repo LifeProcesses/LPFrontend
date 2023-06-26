@@ -3,7 +3,7 @@ import { InterviewStatusType, StudentStatusType } from 'helpers/types';
 
 export const STUDENTS_MOCK: StudentPayload[] = [
     {
-        id: 132,
+        studentId: 132,
         name: 'Дорохин Владислав',
         image: '',
         status: {
@@ -42,7 +42,7 @@ export const STUDENTS_MOCK: StudentPayload[] = [
         lastActivity: new Date(),
     },
     {
-        id: 4,
+        studentId: 4,
         name: 'Дорохин Владислав',
         image: '',
         status: {
@@ -65,7 +65,7 @@ export const STUDENTS_MOCK: StudentPayload[] = [
         lastActivity: new Date(),
     },
     {
-        id: 11,
+        studentId: 11,
         name: 'Дорохин Владислав',
         image: '',
         status: {
@@ -88,7 +88,7 @@ export const STUDENTS_MOCK: StudentPayload[] = [
         lastActivity: new Date(),
     },
     {
-        id: 333,
+        studentId: 333,
         name: 'Дорохин Владислав',
         image: '',
         status: {
@@ -111,7 +111,7 @@ export const STUDENTS_MOCK: StudentPayload[] = [
         lastActivity: new Date(),
     },
     {
-        id: 243,
+        studentId: 243,
         name: 'Дорохин Владислав',
         image: '',
         status: {
