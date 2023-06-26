@@ -62,7 +62,7 @@ const StudentsFilters: React.FC = () => {
 
         return () => clearTimeout(delayDebounceFn);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [selectedCompanies, selectedPositions, selectedStatuses]);
+    }, [filteredName, selectedCompanies, selectedPositions, selectedStatuses]);
 
     const handleFilter = useCallback(() => {
         dispatch(
