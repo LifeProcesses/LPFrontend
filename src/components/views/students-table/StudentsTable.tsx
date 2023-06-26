@@ -16,7 +16,7 @@ import type { ColumnsType } from 'antd/es/table';
 
 import './StudentsTable.scss';
 
-const StudentsTable: React.FC<{ isLoading: boolean }> = ({ isLoading }) => {
+const StudentsTable: React.FC<{ isLoading?: boolean }> = ({ isLoading = false }) => {
     const { filteredStudents: students } = useAppSelector((store) => store.students);
 
     const [getStudent, { isFetching: isStudentFetching, isLoading: isStudentLoading }] = useLazyGetStudentInfoQuery();

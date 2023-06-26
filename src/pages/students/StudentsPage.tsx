@@ -6,14 +6,14 @@ import StudentsTable from 'components/views/students-table/StudentsTable';
 import StudentsFilters from 'components/views/students-table-filter/StudentsFilters';
 
 const StudentsPage: React.FC = () => {
-    const { isLoading: isStudentsLoading } = useGetStudentsListQuery();
-    useGetCompaniesListQuery();
-    useGetPositionsListQuery();
+    // const { isLoading: isStudentsLoading } = useGetStudentsListQuery();
+    // useGetCompaniesListQuery();
+    // useGetPositionsListQuery();
 
     return (
         <>
             <StudentsFilters />
-            <StudentsTable isLoading={isStudentsLoading} />
+            <StudentsTable />
         </>
     );
 };
