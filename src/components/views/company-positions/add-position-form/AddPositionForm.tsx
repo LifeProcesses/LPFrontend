@@ -48,7 +48,7 @@ const AddPositionForm: React.FC<{ companyPositions?: CompanyPositionPayload[]; c
         await addPosition({
             companyId: 1,
             position: {
-                postionTypeId: newPosition.toString(),
+                positionTypeId : newPosition.toString(),
                 plan: newPositionPlan,
             },
         })

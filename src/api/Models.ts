@@ -146,7 +146,7 @@ export interface CompanyPositionPayload {
 export interface AddCompanyPositionModel {
     companyId: number;
     position: {
-        postionTypeId: string;
+        positionTypeId: string;
         plan: number;
     };
 }
