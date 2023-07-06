@@ -9,7 +9,9 @@ import { useGetPositionsListQuery } from 'api/routes/positionsApi';
 import './PositionsList.scss';
 
 const PositionsList: React.FC = () => {
-    const { data: positionsList, isLoading: isPositionsLoading } = useGetPositionsListQuery();
+    const { data: positionsList, isLoading: isPositionsLoading } = useGetPositionsListQuery(null, {
+        refetchOnMountOrArgChange: true,
+    });
     // const positionsList = POSITIONS_MOCK;
 
     const [filterValue, setFilterValue] = useState<string>('');

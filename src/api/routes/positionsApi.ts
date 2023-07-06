@@ -19,7 +19,7 @@ export const positionsApi = createApi({
 
     endpoints: (build) => {
         return {
-            getPositionsList: build.query<PositionsPayload, void>({
+            getPositionsList: build.query<PositionsPayload, null>({
                 query: () => ({
                     url: ``,
                     method: 'GET',

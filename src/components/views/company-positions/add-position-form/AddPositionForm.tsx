@@ -13,7 +13,7 @@ const AddPositionForm: React.FC<{ companyPositions?: CompanyPositionPayload[]; c
     companyPositions,
     companyId,
 }) => {
-    const { data: positions } = useGetPositionsListQuery();
+    const { data: positions } = useGetPositionsListQuery(null);
     const [addPosition, { isLoading }] = useAddCompanyPositionMutation();
 
     const formRef = useRef<HTMLDivElement>(null);

@@ -8,7 +8,7 @@ import StudentsFilters from 'components/views/students-table-filter/StudentsFilt
 const StudentsPage: React.FC = () => {
     const { isLoading: isStudentsLoading } = useGetStudentsListQuery();
     useGetCompaniesListQuery();
-    useGetPositionsListQuery();
+    useGetPositionsListQuery(null);
 
     return (
         <>
