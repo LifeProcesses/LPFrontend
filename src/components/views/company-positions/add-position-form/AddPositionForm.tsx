@@ -46,15 +46,15 @@ const AddPositionForm: React.FC<{ companyPositions?: CompanyPositionPayload[]; c
             return;
         }
         await addPosition({
-            companyId: 1,
+            companyId,
             position: {
-                positionTypeId : newPosition.toString(),
+                positionTypeId: newPosition.toString(),
                 plan: newPositionPlan,
             },
         })
             .unwrap()
             .then(() => setIsNewInterviewVisible(false));
-    }, [addPosition, newPosition, newPositionPlan]);
+    }, [addPosition, companyId, newPosition, newPositionPlan]);
 
     // useOutsideClick([formRef], handleCancelClick);
 
