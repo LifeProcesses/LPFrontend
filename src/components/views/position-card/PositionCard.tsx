@@ -9,12 +9,13 @@ import { CompanyPositionStudentPayload } from 'api/Models';
 import AppAvatar from 'components/shared/AppAvatar';
 import { tagRender } from 'components/shared/selectTag/SelectTag';
 import { STUDENT_STATUS_LABEL, STUDENT_STATUS_TAG_CLASS } from 'helpers/constants';
+import { COMPANY_POSITION_STUDENTS_MOCK } from 'helpers/mocks/Companies.mock';
 
 import type { ColumnsType } from 'antd/es/table';
 
 import './PositionCard.scss';
 
-const PositionCard: React.FC<PositionCardProps> = ({ position, isOpen, onClose, onClickStudent }) => {
+const PositionCard: React.FC<PositionCardProps> = ({ isFirstPosition, position, isOpen, onClose, onClickStudent }) => {
     const [selectedStatuses, setSelectedStatuses] = useState<string[]>([]);
 
     const statusesOptions = useMemo(
@@ -29,12 +30,13 @@ const PositionCard: React.FC<PositionCardProps> = ({ position, isOpen, onClose, 
     );
 
     const filteredStudents = useMemo(() => {
+        const students = isFirstPosition ? COMPANY_POSITION_STUDENTS_MOCK : position?.students || [];
         if (!selectedStatuses.length) {
-            return position?.students;
+            return students;
         }
 
-        return position?.students.filter((student) => selectedStatuses.includes(student.status));
-    }, [position?.students, selectedStatuses]);
+        return students.filter((student) => selectedStatuses.includes(student.status));
+    }, [isFirstPosition, position?.students, selectedStatuses]);
 
     const columns: ColumnsType<CompanyPositionStudentPayload> = [
         {

@@ -3,6 +3,7 @@ import {
     CompanyDetailPayload,
     CompanyPositionsListPayload,
     CompanyRepresentativeModel,
+    CompanyPositionStudentPayload,
 } from 'api/Models';
 import { StudentStatusType } from 'helpers/types';
 
@@ -128,6 +129,37 @@ export const COMPANY_POSITIONS_MOCK: CompanyPositionsListPayload = {
         },
     ],
 };
+
+export const COMPANY_POSITION_STUDENTS_MOCK: CompanyPositionStudentPayload[] = [
+    {
+        studentId: 132,
+        name: 'Дорохин Владислав',
+        image: 'https://static.tildacdn.com/tild3431-3062-4262-a138-333662326332/png-clipart-teacher-.png',
+        status: StudentStatusType.Accepted,
+        lastActivity: new Date(),
+    },
+    {
+        studentId: 4,
+        name: 'Воронова Маша',
+        image: 'https://img2.freepng.ru/20180504/phe/kisspng-professional-computer-icons-avatar-job-5aec571ec854c8.3222584415254382388206.jpg',
+        status: StudentStatusType.Interview,
+        lastActivity: new Date(),
+    },
+    {
+        studentId: 11,
+        name: 'Скорополохов Владимир',
+        image: 'https://static.tildacdn.com/tild3431-3062-4262-a138-333662326332/png-clipart-teacher-.png',
+        status: StudentStatusType.Refused,
+        lastActivity: new Date(),
+    },
+    {
+        studentId: 333,
+        name: 'Вишневский Игорь',
+        image: 'https://static.tildacdn.com/tild3431-3062-4262-a138-333662326332/png-clipart-teacher-.png',
+        status: StudentStatusType.Issued,
+        lastActivity: new Date(),
+    },
+];
 
 export const REPRESENTATIVES_MOCK: CompanyRepresentativeModel[] = [
     {

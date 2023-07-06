@@ -28,6 +28,7 @@ const CompanyPositions: React.FC = () => {
 
     const [isPositionCardOpen, setIsPositionCardOpen] = useState<boolean>(false);
     const [currentPosition, setCurrentPosition] = useState<CompanyPositionPayload | null>(null);
+    const [isFirstPosition, setIsFirstPosition] = useState<boolean>(false);
 
     const [isStudentCardOpen, setIsStudentCardOpen] = useState<boolean>(false);
     const [currentStudent, setCurrentStudent] = useState<StudentInfoPayload | null>(STUDENT_INFO_MOCK);
@@ -64,11 +65,12 @@ const CompanyPositions: React.FC = () => {
                         <List
                             loading={isPositionsLoading}
                             dataSource={positions.positionsListForOneCompany}
-                            renderItem={(item) => (
+                            renderItem={(item, i) => (
                                 <List.Item>
                                     <div
                                         className='company-positions__item'
                                         onClick={() => {
+                                            setIsFirstPosition(!i);
                                             setCurrentPosition(item);
                                             setIsPositionCardOpen(true);
                                         }}
@@ -87,6 +89,7 @@ const CompanyPositions: React.FC = () => {
                 )}
             </div>
             <PositionCard
+                isFirstPosition={isFirstPosition}
                 position={currentPosition}
                 isOpen={isPositionCardOpen}
                 onClose={() => setIsPositionCardOpen(false)}
