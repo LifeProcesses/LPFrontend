@@ -5,7 +5,7 @@ import { CompanyPositionPayload } from 'api/Models';
 import { useAddCompanyPositionMutation } from 'api/routes/companiesApi';
 import { useGetPositionsListQuery } from 'api/routes/positionsApi';
 
-import useOutsideClick from 'hooks/useOutsideClick';
+// import useOutsideClick from 'hooks/useOutsideClick';
 
 import './AddPositionForm.scss';
 
@@ -56,7 +56,7 @@ const AddPositionForm: React.FC<{ companyPositions?: CompanyPositionPayload[]; c
             .then(() => setIsNewInterviewVisible(false));
     }, [addPosition, newPosition, newPositionPlan]);
 
-    useOutsideClick([formRef], handleCancelClick);
+    // useOutsideClick([formRef], handleCancelClick);
 
     return (
         <div className='add-position'>
