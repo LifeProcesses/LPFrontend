@@ -131,11 +131,11 @@ export interface CompanyContactPayload {
 export interface CompanyPositionsListPayload {
     plan: number;
     taken: number;
-    positions: CompanyPositionPayload[];
+    positionsListForOneCompany: CompanyPositionPayload[];
 }
 
 export interface CompanyPositionPayload {
-    id: number;
+    positionId: number;
     positionTypeId: number;
     name: string;
     plan: number;
@@ -152,7 +152,7 @@ export interface AddCompanyPositionModel {
 }
 
 export interface CompanyPositionStudentPayload {
-    id: number;
+    studentId: number;
     name: string;
     image: string;
     status: StudentStatusType;

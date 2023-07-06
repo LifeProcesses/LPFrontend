@@ -72,37 +72,37 @@ export const COMPANY_DETAIL_MOCK: CompanyDetailPayload = {
 export const COMPANY_POSITIONS_MOCK: CompanyPositionsListPayload = {
     plan: 16,
     taken: 3,
-    positions: [
+    positionsListForOneCompany: [
         {
-            id: 1,
+            positionId: 1,
             positionTypeId: 1,
             name: 'Frontend React',
             plan: 5,
             taken: 1,
             students: [
                 {
-                    id: 132,
+                    studentId: 132,
                     name: 'Дорохин Владислав',
                     image: '',
                     status: StudentStatusType.Accepted,
                     lastActivity: new Date(),
                 },
                 {
-                    id: 4,
+                    studentId: 4,
                     name: 'Дорохин Владислав',
                     image: '',
                     status: StudentStatusType.Interview,
                     lastActivity: new Date(),
                 },
                 {
-                    id: 11,
+                    studentId: 11,
                     name: 'Дорохин Владислав',
                     image: '',
                     status: StudentStatusType.Refused,
                     lastActivity: new Date(),
                 },
                 {
-                    id: 333,
+                    studentId: 333,
                     name: 'Дорохин Владислав',
                     image: '',
                     status: StudentStatusType.Issued,
@@ -111,14 +111,14 @@ export const COMPANY_POSITIONS_MOCK: CompanyPositionsListPayload = {
             ],
         },
         {
-            id: 2,
+            positionId: 2,
             positionTypeId: 2,
             name: 'Frontend Vue',
             plan: 1,
             taken: 0,
             students: [
                 {
-                    id: 11,
+                    studentId: 11,
                     name: 'Дорохин Владислав',
                     image: '',
                     status: StudentStatusType.Accepted,

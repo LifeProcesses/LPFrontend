@@ -26,7 +26,7 @@ const AddPositionForm: React.FC<{ companyPositions?: CompanyPositionPayload[]; c
         () =>
             companyPositions && positions
                 ? positions.positions
-                      .filter((position) => !companyPositions.some((p) => p.id === position.positionId))
+                      .filter((position) => !companyPositions.some((p) => p.positionId === position.positionId))
                       .map((position) => ({
                           value: position.positionId,
                           label: position.name,

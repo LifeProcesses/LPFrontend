@@ -58,12 +58,12 @@ const CompanyPositions: React.FC = () => {
                             </Tag>
                             <AddPositionForm
                                 companyId={parseInt(companyId || '')}
-                                companyPositions={positions.positions}
+                                companyPositions={positions.positionsListForOneCompany}
                             />
                         </div>
                         <List
                             loading={isPositionsLoading}
-                            dataSource={positions.positions}
+                            dataSource={positions.positionsListForOneCompany}
                             renderItem={(item) => (
                                 <List.Item>
                                     <div

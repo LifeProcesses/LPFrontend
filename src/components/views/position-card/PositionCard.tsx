@@ -41,7 +41,7 @@ const PositionCard: React.FC<PositionCardProps> = ({ position, isOpen, onClose, 
             title: 'Имя',
             dataIndex: 'name',
             key: 'name',
-            render: (_, { id, name, image }) => (
+            render: (_, { studentId: id, name, image }) => (
                 <div className='student-name' onClick={() => onClickStudent(id)}>
                     <AppAvatar src={image} style={{ marginRight: '17px' }} />
                     <span>{name}</span>
