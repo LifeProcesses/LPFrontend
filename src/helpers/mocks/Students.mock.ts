@@ -5,7 +5,7 @@ export const STUDENTS_MOCK: StudentPayload[] = [
     {
         studentId: 132,
         name: 'Дорохин Владислав',
-        image: '',
+        image: 'https://static.tildacdn.com/tild3431-3062-4262-a138-333662326332/png-clipart-teacher-.png',
         status: {
             type: StudentStatusType.Accepted,
             number: 0,
@@ -43,8 +43,8 @@ export const STUDENTS_MOCK: StudentPayload[] = [
     },
     {
         studentId: 4,
-        name: 'Дорохин Владислав',
-        image: '',
+        name: 'Скорый Владимир',
+        image: 'https://static.tildacdn.com/tild3431-3062-4262-a138-333662326332/png-clipart-teacher-.png',
         status: {
             type: StudentStatusType.Issued,
             number: 4,
@@ -66,8 +66,8 @@ export const STUDENTS_MOCK: StudentPayload[] = [
     },
     {
         studentId: 11,
-        name: 'Дорохин Владислав',
-        image: '',
+        name: 'Иванов Саша',
+        image: 'https://static.tildacdn.com/tild3431-3062-4262-a138-333662326332/png-clipart-teacher-.png',
         status: {
             type: StudentStatusType.Interview,
             number: 0,
@@ -89,8 +89,8 @@ export const STUDENTS_MOCK: StudentPayload[] = [
     },
     {
         studentId: 333,
-        name: 'Дорохин Владислав',
-        image: '',
+        name: 'Вишневский Игорь',
+        image: 'https://static.tildacdn.com/tild3431-3062-4262-a138-333662326332/png-clipart-teacher-.png',
         status: {
             type: StudentStatusType.Empty,
             number: 0,
@@ -112,8 +112,8 @@ export const STUDENTS_MOCK: StudentPayload[] = [
     },
     {
         studentId: 243,
-        name: 'Дорохин Владислав',
-        image: '',
+        name: 'Воронова Маша',
+        image: 'https://img2.freepng.ru/20180504/phe/kisspng-professional-computer-icons-avatar-job-5aec571ec854c8.3222584415254382388206.jpg',
         status: {
             type: StudentStatusType.Refused,
             number: 0,
@@ -138,7 +138,7 @@ export const STUDENTS_MOCK: StudentPayload[] = [
 export const STUDENT_INFO_MOCK: StudentInfoPayload = {
     id: 132,
     name: 'Дорохин Владислав',
-    image: '',
+    image: 'https://static.tildacdn.com/tild3431-3062-4262-a138-333662326332/png-clipart-teacher-.png',
     position: 'Frontend-разработчик',
     contacts: [
         {
@@ -160,7 +160,16 @@ export const STUDENT_INFO_MOCK: StudentInfoPayload = {
                     author: {
                         id: 1,
                         name: 'Дорохин Владислав',
-                        image: 'string',
+                        image: 'https://static.tildacdn.com/tild3431-3062-4262-a138-333662326332/png-clipart-teacher-.png',
+                    },
+                    timestamp: new Date(),
+                    text: 'Принял оффер',
+                },
+                {
+                    author: {
+                        id: 1,
+                        name: 'Иващенко Елена',
+                        image: 'https://img2.freepng.ru/20180504/phe/kisspng-professional-computer-icons-avatar-job-5aec571ec854c8.3222584415254382388206.jpg',
                     },
                     timestamp: new Date(),
                     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis ex non felis consequat rutrum. Vestibulum tempus leo eget ante eleifend, ac tempus ex scelerisque. Fusce in justo faucibus, laoreet velit sed, scelerisque lacus',
@@ -169,7 +178,7 @@ export const STUDENT_INFO_MOCK: StudentInfoPayload = {
                     author: {
                         id: 1,
                         name: 'Дорохин Владислав',
-                        image: 'string',
+                        image: 'https://static.tildacdn.com/tild3431-3062-4262-a138-333662326332/png-clipart-teacher-.png',
                     },
                     timestamp: new Date(),
                     text: 'Phasellus leo dui, sodales eu vehicula vitae, pharetra sed felis. Curabitur eros elit, blandit at tempor',
@@ -177,8 +186,8 @@ export const STUDENT_INFO_MOCK: StudentInfoPayload = {
                 {
                     author: {
                         id: 1,
-                        name: 'Дорохин Владислав',
-                        image: 'string',
+                        name: 'Иващенко Елена',
+                        image: 'https://img2.freepng.ru/20180504/phe/kisspng-professional-computer-icons-avatar-job-5aec571ec854c8.3222584415254382388206.jpg',
                     },
                     timestamp: new Date(),
                     text: 'Sed ultricies tellus a nunc ultrices auctor.',
@@ -197,11 +206,11 @@ export const STUDENT_INFO_MOCK: StudentInfoPayload = {
                 {
                     author: {
                         id: 1,
-                        name: 'string',
-                        image: 'string',
+                        name: 'Дорохин Владислав',
+                        image: 'https://static.tildacdn.com/tild3431-3062-4262-a138-333662326332/png-clipart-teacher-.png',
                     },
                     timestamp: new Date(),
-                    text: 'string',
+                    text: 'Phasellus leo dui, sodales eu vehicula vitae, pharetra sed felis. Curabitur eros elit, blandit at tempor',
                 },
             ],
         },
@@ -217,11 +226,11 @@ export const STUDENT_INFO_MOCK: StudentInfoPayload = {
                 {
                     author: {
                         id: 1,
-                        name: 'string',
-                        image: 'string',
+                        name: 'Дорохин Владислав',
+                        image: 'https://static.tildacdn.com/tild3431-3062-4262-a138-333662326332/png-clipart-teacher-.png',
                     },
                     timestamp: new Date(),
-                    text: 'string',
+                    text: 'Phasellus leo dui, sodales eu vehicula vitae, pharetra sed felis. Curabitur eros elit, blandit at tempor',
                 },
             ],
         },

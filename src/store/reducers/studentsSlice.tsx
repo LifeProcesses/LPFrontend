@@ -6,7 +6,7 @@ import { positionsApi } from 'api/routes/positionsApi';
 import { studentsApi } from 'api/routes/studentsApi';
 // import { COMPANIES_MOCK } from 'helpers/mocks/Companies.mock';
 // import { POSITIONS_MOCK } from 'helpers/mocks/Positions.mock';
-// import { STUDENTS_MOCK } from 'helpers/mocks/Students.mock';
+import { STUDENTS_MOCK } from 'helpers/mocks/Students.mock';
 
 interface StudentsState {
     students: StudentPayload[];
@@ -16,12 +16,12 @@ interface StudentsState {
 }
 
 const initialState: StudentsState = {
-    // students: STUDENTS_MOCK,
-    // filteredStudents: STUDENTS_MOCK,
+    students: STUDENTS_MOCK,
+    filteredStudents: STUDENTS_MOCK,
     // companies: COMPANIES_MOCK,
     // positions: POSITIONS_MOCK.positions,
-    students: [],
-    filteredStudents: [],
+    // students: [],
+    // filteredStudents: [],
     companies: [],
     positions: [],
 };
