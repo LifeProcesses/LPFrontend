@@ -3,6 +3,7 @@ import { Route, Routes, BrowserRouter as Router, Navigate } from 'react-router-d
 import CompaniesPage from 'pages/companies/CompaniesPage';
 import CompanyPage from 'pages/company/CompanyPage';
 import CreateCompanyPage from 'pages/create-company/CreateCompanyPage';
+import OrderPage from 'pages/order/OrderPage';
 import PositionsPage from 'pages/positions/PositionsPage';
 import StudentsPage from 'pages/students/StudentsPage';
 import TemplatePageLayout from 'pages/templateLayout/TemplatePageLayout';
@@ -16,6 +17,7 @@ function App() {
                 <Routes>
                     <Route path='' element={<Navigate replace to='/students' />} />
                     <Route path='/*' element={<TemplatePageLayout />}>
+                        <Route path='order' element={<OrderPage />} />
                         <Route path='students' element={<StudentsPage />} />
                         <Route path='positions' element={<PositionsPage />} />
                         <Route path='companies' element={<CompaniesPage />} />

@@ -14,6 +14,7 @@ const AppHeader: React.FC = () => {
     const isStudentsPath = matchPath('/students/*', pathname);
     const isCompaniesPath = matchPath('/companies/*', pathname);
     const isPositionsPath = matchPath('/positions/*', pathname);
+    const isOrderPath = matchPath('/order/*', pathname);
 
     const flowOPtions = useMemo(() => STUDENTS_FLOW_MOCK.map((flow) => ({ value: flow.id, label: flow.name })), []);
 
@@ -36,6 +37,9 @@ const AppHeader: React.FC = () => {
                 </Link>
                 <Link to='positions' className={isPositionsPath ? 'selected' : ''}>
                     Позиции
+                </Link>
+                <Link to='order' className={isOrderPath ? 'selected' : ''}>
+                    Приказ
                 </Link>
             </div>
             <div className='header__select'>
